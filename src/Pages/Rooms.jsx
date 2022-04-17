@@ -1,10 +1,11 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import Hero from '../Components/Hero'
 
 const Rooms = (props) => {
   return (
     <div>
-      Hello from Rooms
+      <Hero hero='roomsHero'></Hero>
       <Outlet />
     </div>
   )
