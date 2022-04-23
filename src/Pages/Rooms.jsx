@@ -6,13 +6,13 @@ import Hero from '../Components/Hero'
 const Rooms = (props) => {
   return (
     <div>
-      <Hero hero='roomsHero'>
+      {/* <Hero hero='roomsHero'>
         <Banner title='Our Rooms'>
           <Link className='btn-primary' to='/'>
             Return Home
           </Link>
         </Banner>
-      </Hero>
+      </Hero> */}
       <Outlet />
     </div>
   )
