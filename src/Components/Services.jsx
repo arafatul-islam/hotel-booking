@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Title from './Title'
 import { FaUmbrellaBeach, FaCannabis, FaSwimmer, FaChild } from 'react-icons/fa'
 const Services = () => {
-  const [services, setServices] = useState([
+  const services = [
     {
       icon: <FaUmbrellaBeach />,
       title: 'Beach View',
@@ -23,7 +23,8 @@ const Services = () => {
       title: 'Child Corner',
       info: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, voluptatem.',
     },
-  ])
+  ]
+
   return (
     <section className='service'>
       <Title title='Services' />
