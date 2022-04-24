@@ -4,6 +4,7 @@ import Banner from '../Components/Banner'
 import FeaturedRooms from '../Components/FeaturedRooms'
 import Hero from '../Components/Hero'
 import Services from '../Components/Services'
+import StyledHero from '../Components/StyledHero'
 
 const Home = (props) => {
   return (
