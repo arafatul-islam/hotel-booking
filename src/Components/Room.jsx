@@ -3,10 +3,11 @@ import { Link, useParams } from 'react-router-dom'
 import defaultImg from '../images/room-1.jpeg'
 import PropTypes from 'prop-types'
 
-const Room = ({ room }) => {
-  const { name, slug, images, price } = room
+const Room = (props) => {
+  const { name, slug, images, price } = props.room
 
-  console.log(slug)
+  const url = props.text ? `rooms/${slug}` : `${slug}`
+
   return (
     <article className='room'>
       <div className='img-container'>
@@ -15,7 +16,7 @@ const Room = ({ room }) => {
           <h6>&#2547;{price}</h6>
           <p>per night</p>
         </div>
-        <Link to={`${slug}`} className='btn-primary room-link'>
+        <Link to={url} className='btn-primary room-link'>
           Features
         </Link>
       </div>
