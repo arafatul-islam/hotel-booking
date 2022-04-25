@@ -2,7 +2,6 @@ import React from 'react'
 import Room from './Room'
 
 const RoomsList = (props) => {
-  console.log(props)
   const { rooms } = props
   if (rooms.length === 0) {
     return (

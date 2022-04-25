@@ -11,7 +11,6 @@ const SingleRoom = (props) => {
   const { slug } = useParams()
   const { getRoom } = useContext(RoomContext)
   const room = getRoom(slug)
-  console.log(room)
   if (!room) {
     return (
       <div className='error'>
@@ -49,10 +48,10 @@ const SingleRoom = (props) => {
           })}
         </div>
         <div className='single-room-info'>
-          <articel className='desc'>
+          <article className='desc'>
             <h3>Details</h3>
             <p>{description}</p>
-          </articel>
+          </article>
           <article className='info'>
             <h3>info</h3>
             <h6>Price : &#2547;{price}</h6>
