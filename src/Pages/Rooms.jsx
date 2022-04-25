@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import Banner from '../Components/Banner'
 import Hero from '../Components/Hero'
+import RoomsContainer from '../Components/RoomsContainer'
 import SingleRoom from './SingleRoom'
 
 const Rooms = (props) => {
@@ -16,6 +17,7 @@ const Rooms = (props) => {
       </Hero> */}
 
       <Outlet />
+      <RoomsContainer />
     </div>
   )
 }

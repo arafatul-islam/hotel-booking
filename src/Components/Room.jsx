@@ -1,10 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import defaultImg from '../images/room-1.jpeg'
 import PropTypes from 'prop-types'
 
 const Room = ({ room }) => {
   const { name, slug, images, price } = room
+
+  console.log(slug)
   return (
     <article className='room'>
       <div className='img-container'>
@@ -13,7 +15,7 @@ const Room = ({ room }) => {
           <h6>&#2547;{price}</h6>
           <p>per night</p>
         </div>
-        <Link to={`rooms/${slug}`} className='btn-primary room-link'>
+        <Link to={`${slug}`} className='btn-primary room-link'>
           Features
         </Link>
       </div>
