@@ -5,6 +5,7 @@ import SingleRoom from './Pages/SingleRoom'
 import Error from './Pages/Error'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Navbar from './Components/Navbar'
+import Footer from './Components/Footer'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         </Route>
         <Route path='*' element={<Error />} />
       </Routes>
+      <Footer />
     </div>
   )
 }
