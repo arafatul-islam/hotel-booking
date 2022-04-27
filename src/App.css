@@ -593,14 +593,13 @@ input[type='radio'] {
 }
 
 /* 360 degree images */
+.img-360 {
+  width: 80vw;
+  height: 60vh;
+}
 @media screen and (min-width: 776px) {
   .img-360 {
-    width: 80vw;
-  }
-}
-@media screen and (min-width: 992px) {
-  .filter-form {
-    width: 65vw;
-    max-width: 1170px;
+    width: 30vw;
+    height: 40vh;
   }
 }
