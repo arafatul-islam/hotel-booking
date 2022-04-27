@@ -46,7 +46,7 @@ const Image360 = () => {
   }
 
   return (
-    <div>
+    <div className='img-360'>
       <iframe src={url} width='500px' height='500px' frameborder='0'></iframe>
     </div>
   )
