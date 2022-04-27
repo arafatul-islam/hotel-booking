@@ -6,6 +6,7 @@ import Error from './Pages/Error'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
+import Image360 from './Components/Image360'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='rooms' element={<Rooms />}>
           <Route path=':slug' element={<SingleRoom />} />
         </Route>
+        <Route path='image360' element={<Image360 />}></Route>
         <Route path='*' element={<Error />} />
       </Routes>
       <Footer />

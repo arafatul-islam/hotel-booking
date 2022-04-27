@@ -6,6 +6,8 @@ import Hero from '../Components/Hero'
 import Banner from '../Components/Banner'
 import StyledHero from '../Components/StyledHero'
 import defaultImg from '../images/room-1.jpeg'
+import Image360 from '../Components/Image360'
+import StarRating from '../Components/StarRating'
 
 const SingleRoom = (props) => {
   const { slug } = useParams()
@@ -49,6 +51,12 @@ const SingleRoom = (props) => {
         </div>
         <div className='single-room-info'>
           <article className='desc'>
+            <h3>
+              <Link to='/image360' className='btn-primary'>
+                View
+              </Link>
+            </h3>
+
             <h3>Details</h3>
             <p>{description}</p>
           </article>
@@ -68,6 +76,8 @@ const SingleRoom = (props) => {
             {extras.map((item, index) => {
               return <li key={index}>-{item}</li>
             })}
+            <div />
+            <StarRating />
           </section>
         </div>
       </section>

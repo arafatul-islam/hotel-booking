@@ -581,3 +581,12 @@ h6 {
   }
 }
 /* end of rooms fitler*/
+
+/* star rating */
+input[type='radio'] {
+  display: none;
+}
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}
