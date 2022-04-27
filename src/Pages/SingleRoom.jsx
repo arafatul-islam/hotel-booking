@@ -1,18 +1,17 @@
-import React, { useContext, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { Link, Outlet, useParams } from 'react-router-dom'
 import { RoomContext } from '../Context'
-import Room from '../Components/Room'
-import Hero from '../Components/Hero'
 import Banner from '../Components/Banner'
 import StyledHero from '../Components/StyledHero'
 import defaultImg from '../images/room-1.jpeg'
-import Image360 from '../Components/Image360'
 import StarRating from '../Components/StarRating'
+import Image360 from '../Components/Image360'
 
 const SingleRoom = (props) => {
   const { slug } = useParams()
   const { getRoom } = useContext(RoomContext)
   const room = getRoom(slug)
+  const [toggle, setToggle] = useState(false)
   if (!room) {
     return (
       <div className='error'>
@@ -52,9 +51,14 @@ const SingleRoom = (props) => {
         <div className='single-room-info'>
           <article className='desc'>
             <h3>
-              <Link to='/image360' className='btn-primary'>
-                View
-              </Link>
+              <button
+                className='btn-primary'
+                onClick={() => setToggle(!toggle)}
+              >
+                view
+              </button>
+              {console.log(toggle)}
+              {toggle && <Image360 />}
             </h3>
 
             <h3>Details</h3>

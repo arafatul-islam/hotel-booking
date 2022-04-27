@@ -40,7 +40,9 @@ class RoomProvider extends Component {
     let tempItems = items.map((item) => {
       let id = item.sys.id
       let images = item.fields.images.map((image) => image.fields.file.url)
+      // let img360 = item.fields.images.map((image) => image.fields.file.img360)
       let room = { ...item.fields, images, id }
+
       return room
     })
     return tempItems

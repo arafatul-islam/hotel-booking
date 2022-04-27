@@ -16,9 +16,11 @@ function App() {
         <Route path='home' element={<Home />} />
         <Route path='/' element={<Home />} />
         <Route path='rooms' element={<Rooms />}>
-          <Route path=':slug' element={<SingleRoom />} />
+          <Route path=':slug' element={<SingleRoom />}>
+            <Route path=':img' element={<Image360 />}></Route>
+          </Route>
         </Route>
-        <Route path='image360' element={<Image360 />}></Route>
+
         <Route path='*' element={<Error />} />
       </Routes>
       <Footer />

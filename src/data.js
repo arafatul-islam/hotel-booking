@@ -46,6 +46,8 @@ export default [
           fields: {
             file: {
               url: img1,
+              img360:
+                'https://momento360.com/e/u/e7298be2f11b4b31911ead7d75270b24?utm_campaign=embed&utm_source=other&heading=-46&pitch=1.5&field-of-view=75&size=medium',
             },
           },
         },
@@ -103,6 +105,8 @@ export default [
           fields: {
             file: {
               url: img2,
+              img360:
+                'https://momento360.com/e/u/e7298be2f11b4b31911ead7d75270b24?utm_campaign=embed&utm_source=other&heading=-46&pitch=1.5&field-of-view=75&size=medium',
             },
           },
         },
@@ -160,6 +164,8 @@ export default [
           fields: {
             file: {
               url: img3,
+              img360:
+                'https://momento360.com/e/u/e7298be2f11b4b31911ead7d75270b24?utm_campaign=embed&utm_source=other&heading=-46&pitch=1.5&field-of-view=75&size=medium',
             },
           },
         },
@@ -217,6 +223,8 @@ export default [
           fields: {
             file: {
               url: img4,
+              img360:
+                'https://momento360.com/e/u/e7298be2f11b4b31911ead7d75270b24?utm_campaign=embed&utm_source=other&heading=-46&pitch=1.5&field-of-view=75&size=medium',
             },
           },
         },
@@ -274,6 +282,8 @@ export default [
           fields: {
             file: {
               url: img5,
+              img360:
+                'https://momento360.com/e/u/e7298be2f11b4b31911ead7d75270b24?utm_campaign=embed&utm_source=other&heading=-46&pitch=1.5&field-of-view=75&size=medium',
             },
           },
         },
@@ -331,6 +341,8 @@ export default [
           fields: {
             file: {
               url: img6,
+              img360:
+                'https://momento360.com/e/u/e7298be2f11b4b31911ead7d75270b24?utm_campaign=embed&utm_source=other&heading=-46&pitch=1.5&field-of-view=75&size=medium',
             },
           },
         },
@@ -388,6 +400,8 @@ export default [
           fields: {
             file: {
               url: img7,
+              img360:
+                'https://momento360.com/e/u/e7298be2f11b4b31911ead7d75270b24?utm_campaign=embed&utm_source=other&heading=-46&pitch=1.5&field-of-view=75&size=medium',
             },
           },
         },
@@ -445,6 +459,8 @@ export default [
           fields: {
             file: {
               url: img8,
+              img360:
+                'https://momento360.com/e/u/e7298be2f11b4b31911ead7d75270b24?utm_campaign=embed&utm_source=other&heading=-46&pitch=1.5&field-of-view=75&size=medium',
             },
           },
         },
@@ -502,6 +518,8 @@ export default [
           fields: {
             file: {
               url: img9,
+              img360:
+                'https://momento360.com/e/u/e7298be2f11b4b31911ead7d75270b24?utm_campaign=embed&utm_source=other&heading=-46&pitch=1.5&field-of-view=75&size=medium',
             },
           },
         },
@@ -559,6 +577,8 @@ export default [
           fields: {
             file: {
               url: img10,
+              img360:
+                'https://momento360.com/e/u/e7298be2f11b4b31911ead7d75270b24?utm_campaign=embed&utm_source=other&heading=-46&pitch=1.5&field-of-view=75&size=medium',
             },
           },
         },
@@ -616,6 +636,8 @@ export default [
           fields: {
             file: {
               url: img11,
+              img360:
+                'https://momento360.com/e/u/e7298be2f11b4b31911ead7d75270b24?utm_campaign=embed&utm_source=other&heading=-46&pitch=1.5&field-of-view=75&size=medium',
             },
           },
         },
@@ -673,6 +695,8 @@ export default [
           fields: {
             file: {
               url: img12,
+              img360:
+                'https://momento360.com/e/u/e7298be2f11b4b31911ead7d75270b24?utm_campaign=embed&utm_source=other&heading=-46&pitch=1.5&field-of-view=75&size=medium',
             },
           },
         },
@@ -730,6 +754,8 @@ export default [
           fields: {
             file: {
               url: room1,
+              img360:
+                'https://momento360.com/e/u/e7298be2f11b4b31911ead7d75270b24?utm_campaign=embed&utm_source=other&heading=-46&pitch=1.5&field-of-view=75&size=medium',
             },
           },
         },
