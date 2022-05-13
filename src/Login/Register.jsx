@@ -11,9 +11,7 @@ import {
 } from 'firebase/auth'
 import { Link } from 'react-router-dom'
 
-const Login = () => {
-  const [user, setUser] = useState({})
-  console.log(user)
+const Register = () => {
   // firebase oAuth
   initializeAuthentication()
   const googleProvider = new GoogleAuthProvider()
@@ -30,6 +28,7 @@ const Login = () => {
         photo: photoURL,
       }
       setUser(loggedInUser)
+      console.log(loggedInUser)
     })
   }
   const handleFacebookLogin = () => {
@@ -47,21 +46,28 @@ const Login = () => {
     })
   }
 
+  const [user, setUser] = useState({})
   const FormHeader = (props) => <h2 id='headerTitle'>{props.title}</h2>
 
   const Form = (props) => (
     <div>
       <FormInput
-        description='username'
-        placeholder='Enter your username'
+        description='firstName'
+        placeholder='Enter your  name'
         type='text'
       />
+
       <FormInput
         description='Password'
         placeholder='Enter your password'
         type='password'
       />
-      <FormButton title='Log in' />
+      <FormInput
+        description='Password'
+        placeholder='Confirm password'
+        type='password'
+      />
+      <FormButton title='Register' />
     </div>
   )
 
@@ -80,7 +86,7 @@ const Login = () => {
 
   const OtherMethods = (props) => (
     <div id='alternativeLogin'>
-      <label>Or sign in with:</label>
+      <label>Or sign up with:</label>
       <div id='iconGroup'>
         <Facebook />
         <Twitter />
@@ -109,14 +115,12 @@ const Login = () => {
 
   return (
     <div id='loginform'>
-      <FormHeader title='Login' />
+      <FormHeader title='Register' />
       <Form />
-      <h6 className='register'>
-        Not Registered? Create an <Link to='/register'>account</Link>
-      </h6>
+
       <OtherMethods />
     </div>
   )
 }
 
-export default Login
+export default Register

@@ -1,12 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:600|Work+Sans:400,500,600,700&display=swap');
 
 body {
-  background: rgb(34, 193, 195);
-  background: linear-gradient(
-    135deg,
-    rgba(34, 193, 195, 1) 0%,
-    rgba(253, 187, 45, 1) 100%
-  );
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: 'work sans';
 }
 
@@ -16,12 +12,13 @@ html {
 
 #loginform {
   max-width: 500px;
-  min-width: 300px;
+  min-width: 320px;
   max-height: 700px;
   width: 30%;
   height: 60%;
   margin: 100px auto;
   background-color: #ffffff;
+  border: 1px solid #e1e0e0;
   border-radius: 25px;
 }
 
@@ -132,4 +129,8 @@ html {
   text-align: center;
   padding-top: 2rem;
   margin-top: 1.5rem;
+}
+
+.register {
+  text-align: center;
 }
