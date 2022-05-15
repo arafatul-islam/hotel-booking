@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, NavLink, useLocation, useParams } from 'react-router-dom'
 import defaultImg from '../images/room-1.jpeg'
 import PropTypes from 'prop-types'
 
@@ -16,8 +16,9 @@ const Room = (props) => {
           <h6>&#2547;{price}</h6>
           <p>per night</p>
         </div>
+
         <Link to={url} className='btn-primary room-link'>
-          Features
+          Feature
         </Link>
       </div>
       <p className='room-info'>{name}</p>

@@ -9,6 +9,7 @@ import Footer from './Components/Footer'
 import Image360 from './Components/Image360'
 import Login from './Login/Login'
 import Register from './Login/Register'
+// import ShowSingleRoom from './Components/ShowSingleRoom'
 
 function App() {
   return (

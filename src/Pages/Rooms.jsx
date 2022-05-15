@@ -15,7 +15,6 @@ const Rooms = (props) => {
           </Link>
         </Banner>
       </Hero> */}
-
       <Outlet />
       <RoomsContainer />
     </div>
