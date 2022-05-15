@@ -491,6 +491,15 @@ h6 {
   grid-column-gap: 2rem;
   grid-row-gap: 1rem;
 }
+.single-extra {
+  /* border: 1px solid; */
+  display: flex;
+  align-items: center;
+}
+.single-extra-label {
+  padding-top: 8px;
+  padding-right: auto;
+}
 @media screen and (min-width: 992px) {
   .single-room-images,
   .single-room-info,

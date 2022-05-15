@@ -119,7 +119,7 @@ const RoomsFilter = ({ rooms }) => {
         {/* {extras} */}
         <div className='form-group'>
           <div className='single-extra'>
-            <label htmlFor='breakfast' className='single-extra label'>
+            <label htmlFor='breakfast' className='single-extra-label'>
               Breakfast
             </label>
             <input
@@ -131,7 +131,7 @@ const RoomsFilter = ({ rooms }) => {
             />
           </div>
           <div className='single-extra'>
-            <label htmlFor='pets' className='single-extra label'>
+            <label htmlFor='pets' className='single-extra-label'>
               Pets
             </label>
             <input

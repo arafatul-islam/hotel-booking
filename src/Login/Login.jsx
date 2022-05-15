@@ -82,28 +82,28 @@ const Login = () => {
     <div id='alternativeLogin'>
       <label>Or sign in with:</label>
       <div id='iconGroup'>
-        <Facebook />
-        <Twitter />
+        {/* <Facebook />
+        <Twitter /> */}
         <Google />
       </div>
     </div>
   )
 
-  const Facebook = (props) => (
-    <a href='#' id='facebookIcon' onClick={handleFacebookLogin}>
-      <FaFacebook />
-    </a>
-  )
+  // const Facebook = (props) => (
+  //   <a href='#' id='facebookIcon' onClick={handleFacebookLogin}>
+  //     <FaFacebook />
+  //   </a>
+  // )
 
-  const Twitter = (props) => (
-    <a href='#' id='twitterIcon' onClick={handleTwitterLogin}>
-      <FaTwitter />
-    </a>
-  )
+  // const Twitter = (props) => (
+  //   <a href='#' id='twitterIcon' onClick={handleTwitterLogin}>
+  //     <FaTwitter />
+  //   </a>
+  // )
 
   const Google = (props) => (
     <a href='#' id='googleIcon' onClick={handleGoogleLogin}>
-      <FaGoogle />
+      <FaGoogle size='35px' />
     </a>
   )
 
