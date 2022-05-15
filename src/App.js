@@ -20,10 +20,9 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
-        <Route path='rooms' element={<Rooms />}>
-          <Route path=':slug' element={<SingleRoom />}>
-            <Route path=':img' element={<Image360 />}></Route>
-          </Route>
+        <Route path='rooms' element={<Rooms />}></Route>
+        <Route path=':slug' element={<SingleRoom />}>
+          <Route path=':img' element={<Image360 />}></Route>
         </Route>
 
         <Route path='*' element={<Error />} />

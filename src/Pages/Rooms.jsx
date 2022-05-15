@@ -7,7 +7,7 @@ import SingleRoom from './SingleRoom'
 
 const Rooms = (props) => {
   return (
-    <div>
+    <div id='rooms'>
       {/* <Hero hero='roomsHero'>
         <Banner title='Our Rooms'>
           <Link className='btn-primary' to='/'>

@@ -16,6 +16,9 @@
   --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
 }
 /* globals */
+html {
+  scroll-behavior: smooth;
+}
 body {
   padding-top: 66px;
   color: var(--mainBlack);
@@ -433,7 +436,7 @@ h6 {
 /* single room*/
 
 .single-room {
-  padding: 5rem 0 0 0;
+  padding: 5rem 0;
 }
 .single-room-images {
   width: 80vw;

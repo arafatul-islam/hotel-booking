@@ -6,6 +6,7 @@ import StyledHero from '../Components/StyledHero'
 import defaultImg from '../images/room-1.jpeg'
 import StarRating from '../Components/StarRating'
 import Image360 from '../Components/Image360'
+import RoomsContainer from '../Components/RoomsContainer'
 
 const SingleRoom = (props) => {
   const { slug } = useParams()
@@ -34,7 +35,7 @@ const SingleRoom = (props) => {
     images,
   } = room
   return (
-    <>
+    <div id='single-room'>
       <StyledHero img={images[0] || defaultImg}>
         <Banner title={`${name} room`}>
           <Link to='/rooms' className='btn-primary'>
@@ -55,7 +56,7 @@ const SingleRoom = (props) => {
                 className='btn-primary'
                 onClick={() => setToggle(!toggle)}
               >
-                view
+                360&#176; view
               </button>
               {console.log(toggle)}
               {toggle && <Image360 />}
@@ -84,8 +85,9 @@ const SingleRoom = (props) => {
             <StarRating />
           </section>
         </div>
+        {/* <RoomsContainer /> */}
       </section>
-    </>
+    </div>
   )
 }
 

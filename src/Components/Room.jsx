@@ -2,11 +2,12 @@ import React, { useEffect } from 'react'
 import { Link, NavLink, useLocation, useParams } from 'react-router-dom'
 import defaultImg from '../images/room-1.jpeg'
 import PropTypes from 'prop-types'
+import { HashLink } from 'react-router-hash-link'
 
 const Room = (props) => {
   const { name, slug, images, price } = props.room
 
-  const url = props.text ? `rooms/${slug}` : `${slug}`
+  // const url = props.text ? `rooms/${slug}` : `${slug}`
 
   return (
     <article className='room'>
@@ -17,7 +18,7 @@ const Room = (props) => {
           <p>per night</p>
         </div>
 
-        <Link to={url} className='btn-primary room-link'>
+        <Link to={`/${slug}`} className='btn-primary room-link'>
           Feature
         </Link>
       </div>
