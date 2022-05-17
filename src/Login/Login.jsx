@@ -17,8 +17,6 @@ const Login = () => {
   // firebase oAuth
   initializeAuthentication()
   const googleProvider = new GoogleAuthProvider()
-  const facebookProvider = new FacebookAuthProvider()
-  const twitterProvider = new TwitterAuthProvider()
 
   const handleGoogleLogin = () => {
     const auth = getAuth()
@@ -32,25 +30,16 @@ const Login = () => {
       setUser(loggedInUser)
     })
   }
-  const handleFacebookLogin = () => {
-    const auth = getAuth()
-    signInWithPopup(auth, facebookProvider).then((result) => {
-      const loggedInUser = result.user
-      console.log(loggedInUser)
-    })
-  }
-  const handleTwitterLogin = () => {
-    const auth = getAuth()
-    signInWithPopup(auth, twitterProvider).then((result) => {
-      const loggedInUser = result.user
-      console.log(loggedInUser)
-    })
+
+  const handleEmailLogin = (e) => {
+    e.preventDefault()
+    console.log('login')
   }
 
   const FormHeader = (props) => <h2 id='headerTitle'>{props.title}</h2>
 
   const Form = (props) => (
-    <div>
+    <form onSubmit={handleEmailLogin}>
       <FormInput
         description='username'
         placeholder='Enter your username'
@@ -62,7 +51,7 @@ const Login = () => {
         type='password'
       />
       <FormButton title='Log in' />
-    </div>
+    </form>
   )
 
   const FormButton = (props) => (
@@ -82,24 +71,10 @@ const Login = () => {
     <div id='alternativeLogin'>
       <label>Or sign in with:</label>
       <div id='iconGroup'>
-        {/* <Facebook />
-        <Twitter /> */}
         <Google />
       </div>
     </div>
   )
-
-  // const Facebook = (props) => (
-  //   <a href='#' id='facebookIcon' onClick={handleFacebookLogin}>
-  //     <FaFacebook />
-  //   </a>
-  // )
-
-  // const Twitter = (props) => (
-  //   <a href='#' id='twitterIcon' onClick={handleTwitterLogin}>
-  //     <FaTwitter />
-  //   </a>
-  // )
 
   const Google = (props) => (
     <a href='#' id='googleIcon' onClick={handleGoogleLogin}>

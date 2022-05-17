@@ -6,20 +6,22 @@ import {
   getAuth,
   signInWithPopup,
   GoogleAuthProvider,
-  FacebookAuthProvider,
-  TwitterAuthProvider,
+  createUserWithEmailAndPassword,
 } from 'firebase/auth'
 import { Link } from 'react-router-dom'
 
 const Register = () => {
+  const [userInfo, setUserInfo] = useState({})
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [errorMsg, setErrorMsg] = useState('')
+
   // firebase oAuth
   initializeAuthentication()
   const googleProvider = new GoogleAuthProvider()
-  const facebookProvider = new FacebookAuthProvider()
-  const twitterProvider = new TwitterAuthProvider()
+  const auth = getAuth()
 
   const handleGoogleLogin = () => {
-    const auth = getAuth()
     signInWithPopup(auth, googleProvider).then((result) => {
       const { displayName, email, photoURL } = result.user
       const loggedInUser = {
@@ -27,98 +29,72 @@ const Register = () => {
         email: email,
         photo: photoURL,
       }
-      setUser(loggedInUser)
-      console.log(loggedInUser)
-    })
-  }
-  const handleFacebookLogin = () => {
-    const auth = getAuth()
-    signInWithPopup(auth, facebookProvider).then((result) => {
-      const loggedInUser = result.user
-      console.log(loggedInUser)
-    })
-  }
-  const handleTwitterLogin = () => {
-    const auth = getAuth()
-    signInWithPopup(auth, twitterProvider).then((result) => {
-      const loggedInUser = result.user
-      console.log(loggedInUser)
+      setUserInfo(loggedInUser)
+      console.log(userInfo)
     })
   }
 
-  const [user, setUser] = useState({})
-  const FormHeader = (props) => <h2 id='headerTitle'>{props.title}</h2>
+  const handleRegister = (e) => {
+    e.preventDefault()
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        // Signed in
+        const user = result.user
+        setUserInfo(user)
+      })
+      .catch((error) => {
+        const errorCode = error.code
+        setErrorMsg(error.message)
+      })
 
-  const Form = (props) => (
-    <div>
-      <FormInput
-        description='firstName'
-        placeholder='Enter your  name'
-        type='text'
-      />
+    setEmail('')
+    setPassword('')
+  }
+  console.log(userInfo)
 
-      <FormInput
-        description='Password'
-        placeholder='Enter your password'
-        type='password'
-      />
-      <FormInput
-        description='Password'
-        placeholder='Confirm password'
-        type='password'
-      />
-      <FormButton title='Register' />
-    </div>
-  )
-
-  const FormButton = (props) => (
-    <div id='button' className='row'>
-      <button>{props.title}</button>
-    </div>
-  )
-
-  const FormInput = (props) => (
-    <div className='row'>
-      <label>{props.description}</label>
-      <input type={props.type} placeholder={props.placeholder} />
-    </div>
-  )
-
-  const OtherMethods = (props) => (
-    <div id='alternativeLogin'>
-      <label>Or sign up with:</label>
-      <div id='iconGroup'>
-        {/* <Facebook />
-        <Twitter /> */}
-        <Google />
-      </div>
-    </div>
-  )
-
-  // const Facebook = (props) => (
-  //   <a href='#' id='facebookIcon' onClick={handleFacebookLogin}>
-  //     <FaFacebook />
-  //   </a>
-  // )
-
-  // const Twitter = (props) => (
-  //   <a href='#' id='twitterIcon' onClick={handleTwitterLogin}>
-  //     <FaTwitter />
-  //   </a>
-  // )
-
-  const Google = (props) => (
-    <a href='#' id='googleIcon' onClick={handleGoogleLogin}>
-      <FaGoogle size='35px' />
-    </a>
-  )
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value)
+  }
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value)
+  }
 
   return (
     <div id='loginform'>
-      <FormHeader title='Register' />
-      <Form />
+      <h2 id='headerTitle'> Register </h2>
+      <form onSubmit={handleRegister}>
+        <div className='row'>
+          <label>Email</label>
+          <input
+            type='email'
+            placeholder='Enter your email'
+            onBlur={handleEmailChange}
+            required
+          />
+        </div>
+        <div className='row'>
+          <label>Password</label>
+          <input
+            type='password'
+            placeholder='Enter your password'
+            onBlur={handlePasswordChange}
+            required
+          />
+        </div>
 
-      <OtherMethods />
+        <div id='button' className='row'>
+          <button> Register</button>
+        </div>
+        <p>{errorMsg}</p>
+        <div id='alternativeLogin'>
+          <label>Or sign up with:</label>
+          <div id='iconGroup'>
+            <a href='#' id='googleIcon' onClick={handleGoogleLogin}>
+              <FaGoogle size='35px' />
+            </a>
+          </div>
+        </div>
+      </form>
     </div>
   )
 }
