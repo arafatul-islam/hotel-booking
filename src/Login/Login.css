@@ -134,3 +134,10 @@ html {
 .register {
   text-align: center;
 }
+
+.error-msg {
+  text-align: center;
+  color: rgb(237, 123, 123);
+  font-size: 1.2rem;
+  cursor: pointer;
+}

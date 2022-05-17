@@ -35,22 +35,28 @@ const Register = () => {
   }
 
   const handleRegister = (e) => {
+    console.log(email, password)
     e.preventDefault()
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        // Signed in
-        const user = result.user
-        setUserInfo(user)
-      })
-      .catch((error) => {
-        const errorCode = error.code
-        setErrorMsg(error.message)
-      })
+    if (password.length < 6) {
+      setErrorMsg('password should be at least 6 characters')
+      return
+    } else {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((result) => {
+          // Signed in
+          const user = result.user
 
-    setEmail('')
-    setPassword('')
+          setErrorMsg('Registration completed')
+        })
+        .catch((error) => {
+          const errorCode = error.code
+          setErrorMsg(error.message)
+        })
+
+      setEmail('')
+      setPassword('')
+    }
   }
-  console.log(userInfo)
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value)
@@ -84,8 +90,12 @@ const Register = () => {
 
         <div id='button' className='row'>
           <button> Register</button>
+          <p>
+            Already registered? <Link to='/login'>Log-in </Link>{' '}
+          </p>
         </div>
-        <p>{errorMsg}</p>
+
+        <p className='error-msg'>{errorMsg}</p>
         <div id='alternativeLogin'>
           <label>Or sign up with:</label>
           <div id='iconGroup'>

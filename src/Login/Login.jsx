@@ -6,20 +6,23 @@ import {
   getAuth,
   signInWithPopup,
   GoogleAuthProvider,
-  FacebookAuthProvider,
-  TwitterAuthProvider,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
 } from 'firebase/auth'
 import { Link } from 'react-router-dom'
 
 const Login = () => {
   const [user, setUser] = useState({})
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [toggle, setToggle] = useState(false)
   console.log(user)
   // firebase oAuth
   initializeAuthentication()
   const googleProvider = new GoogleAuthProvider()
+  const auth = getAuth()
 
   const handleGoogleLogin = () => {
-    const auth = getAuth()
     signInWithPopup(auth, googleProvider).then((result) => {
       const { displayName, email, photoURL } = result.user
       const loggedInUser = {
@@ -33,63 +36,80 @@ const Login = () => {
 
   const handleEmailLogin = (e) => {
     e.preventDefault()
-    console.log('login')
+    signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+      // Signed in
+      const user = userCredential.user
+      console.log(user)
+    })
   }
 
-  const FormHeader = (props) => <h2 id='headerTitle'>{props.title}</h2>
+  const handleResetPassword = () => {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        // Password reset email sent!
+        // ..
+      })
+      .catch((error) => {
+        const errorCode = error.code
+        const errorMessage = error.message
+        // ..
+      })
+  }
 
-  const Form = (props) => (
-    <form onSubmit={handleEmailLogin}>
-      <FormInput
-        description='username'
-        placeholder='Enter your username'
-        type='text'
-      />
-      <FormInput
-        description='Password'
-        placeholder='Enter your password'
-        type='password'
-      />
-      <FormButton title='Log in' />
-    </form>
-  )
-
-  const FormButton = (props) => (
-    <div id='button' className='row'>
-      <button>{props.title}</button>
-    </div>
-  )
-
-  const FormInput = (props) => (
-    <div className='row'>
-      <label>{props.description}</label>
-      <input type={props.type} placeholder={props.placeholder} />
-    </div>
-  )
-
-  const OtherMethods = (props) => (
-    <div id='alternativeLogin'>
-      <label>Or sign in with:</label>
-      <div id='iconGroup'>
-        <Google />
-      </div>
-    </div>
-  )
-
-  const Google = (props) => (
-    <a href='#' id='googleIcon' onClick={handleGoogleLogin}>
-      <FaGoogle size='35px' />
-    </a>
-  )
-
+  const handleEmail = (e) => {
+    setEmail(e.target.value)
+  }
+  const handlePassword = (e) => {
+    setPassword(e.target.value)
+  }
   return (
     <div id='loginform'>
-      <FormHeader title='Login' />
-      <Form />
-      <h6 className='register'>
-        Not Registered? Create an <Link to='/register'>account</Link>
-      </h6>
-      <OtherMethods />
+      <h2 id='headerTitle'>Login</h2>
+      <form onSubmit={handleEmailLogin}>
+        <div className='row'>
+          <label>Email</label>
+          <input
+            type='email'
+            placeholder='Enter your email'
+            onBlur={handleEmail}
+          />
+        </div>
+        {!toggle ? (
+          <div className='row'>
+            <label>Password</label>
+            <input
+              type='password'
+              placeholder='Enter your password'
+              onBlur={handlePassword}
+            />
+          </div>
+        ) : (
+          ''
+        )}
+        <div id='button' className='row'>
+          {!toggle ? <button>Log-in</button> : ''}
+          <p className='error-msg' onClick={() => setToggle(!toggle)}>
+            {!toggle ? 'forgot password?' : 'log-in'}
+          </p>
+          {toggle ? (
+            <button onClick={handleResetPassword}>Reset password</button>
+          ) : (
+            ''
+          )}
+
+          <p>
+            Not registered? Create an <Link to='/register'>account</Link>
+          </p>
+        </div>
+        <div id='alternativeLogin'>
+          <label>Or sign in with:</label>
+          <div id='iconGroup'>
+            <a href='#' id='googleIcon' onClick={handleGoogleLogin}>
+              <FaGoogle size='35px' />
+            </a>
+          </div>
+        </div>
+      </form>
     </div>
   )
 }
