@@ -7,12 +7,14 @@ import defaultImg from '../images/room-1.jpeg'
 import StarRating from '../Components/StarRating'
 import Image360 from '../Components/Image360'
 import RoomsContainer from '../Components/RoomsContainer'
+import useFirebase from '../hooks/useFirebase'
 
 const SingleRoom = (props) => {
   const { slug } = useParams()
   const { getRoom } = useContext(RoomContext)
   const room = getRoom(slug)
   const [toggle, setToggle] = useState(false)
+  const { user } = useFirebase()
   if (!room) {
     return (
       <div className='error'>
@@ -38,9 +40,15 @@ const SingleRoom = (props) => {
     <div id='single-room'>
       <StyledHero img={images[0] || defaultImg}>
         <Banner title={`${name} room`}>
-          <Link to='/rooms' className='btn-primary'>
-            Back to rooms
-          </Link>
+          {user ? (
+            <Link className='btn-primary' to='/reservation'>
+              Book
+            </Link>
+          ) : (
+            <Link className='btn-primary' to='/login'>
+              Book
+            </Link>
+          )}
         </Banner>
       </StyledHero>
       <section className='single-room '>
@@ -66,6 +74,7 @@ const SingleRoom = (props) => {
             <p>{description}</p>
           </article>
           <article className='info'>
+            <br />
             <h3>info</h3>
             <h6>Price : &#2547;{price}</h6>
             <h6>Size : {size} sqft </h6>

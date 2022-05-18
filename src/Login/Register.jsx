@@ -7,10 +7,13 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  updateProfile,
+  sendEmailVerification,
 } from 'firebase/auth'
 import { Link } from 'react-router-dom'
 
 const Register = () => {
+  const [name, setName] = useState('')
   const [userInfo, setUserInfo] = useState({})
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -35,7 +38,6 @@ const Register = () => {
   }
 
   const handleRegister = (e) => {
-    console.log(email, password)
     e.preventDefault()
     if (password.length < 6) {
       setErrorMsg('password should be at least 6 characters')
@@ -45,19 +47,43 @@ const Register = () => {
         .then((result) => {
           // Signed in
           const user = result.user
-
-          setErrorMsg('Registration completed')
+          handleEmailVerification()
+          updateUserProfile()
+          console.log(user)
         })
         .catch((error) => {
           const errorCode = error.code
           setErrorMsg(error.message)
         })
-
+      setErrorMsg('Registration completed')
       setEmail('')
       setPassword('')
     }
   }
 
+  const handleEmailVerification = () => {
+    sendEmailVerification(auth.currentUser).then((result) => {
+      setErrorMsg('Email verification link sent')
+    })
+  }
+
+  const updateUserProfile = () => {
+    updateProfile(auth.currentUser, {
+      displayName: name,
+    })
+      .then(() => {
+        // Profile updated!
+        // ...
+      })
+      .catch((error) => {
+        // An error occurred
+        // ...
+      })
+  }
+
+  const handleNameChange = (e) => {
+    setName(e.target.value)
+  }
   const handleEmailChange = (e) => {
     setEmail(e.target.value)
   }
@@ -69,6 +95,15 @@ const Register = () => {
     <div id='loginform'>
       <h2 id='headerTitle'> Register </h2>
       <form onSubmit={handleRegister}>
+        <div className='row'>
+          <label>Name</label>
+          <input
+            type='name'
+            placeholder='Enter your name'
+            onBlur={handleNameChange}
+            required
+          />
+        </div>
         <div className='row'>
           <label>Email</label>
           <input
@@ -90,7 +125,7 @@ const Register = () => {
 
         <div id='button' className='row'>
           <button> Register</button>
-          <p>
+          <p className='register'>
             Already registered? <Link to='/login'>Log-in </Link>{' '}
           </p>
         </div>

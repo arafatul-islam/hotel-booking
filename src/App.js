@@ -9,6 +9,7 @@ import Footer from './Components/Footer'
 import Image360 from './Components/Image360'
 import Login from './Login/Login'
 import Register from './Login/Register'
+import Reservation from './Components/Reservation'
 // import ShowSingleRoom from './Components/ShowSingleRoom'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path=':slug' element={<SingleRoom />}>
           <Route path=':img' element={<Image360 />}></Route>
         </Route>
+        <Route path='reservation' element={<Reservation />}></Route>
 
         <Route path='*' element={<Error />} />
       </Routes>

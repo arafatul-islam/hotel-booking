@@ -72,6 +72,18 @@ h6 {
   background: transparent;
   color: var(--primaryColor);
 }
+.btn-logout {
+  display: inline-block;
+  text-decoration: none;
+  letter-spacing: var(--mainSpacing);
+  color: var(--mainBlack);
+  background: var(--primaryColor);
+  padding: 0.4rem 0.9rem;
+  border: 3px solid var(--primaryColor);
+  transition: var(--mainTransition);
+  text-transform: uppercase;
+  cursor: pointer;
+}
 .loading {
   text-transform: capitalize;
   text-align: center;
@@ -103,7 +115,14 @@ h6 {
 .nav-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid; */
 }
+.userNav {
+  display: flex;
+  justify-content: space-between;
+}
+
 .nav-btn {
   background: transparent;
   border: none;
@@ -147,11 +166,14 @@ h6 {
     max-width: 1170px;
     margin: 0 auto;
     display: flex;
+    /* border: 1px solid; */
+    align-items: center;
   }
   .nav-links {
     height: auto;
     display: flex;
     margin-left: 4rem;
+    align-items: center;
   }
   .nav-links a {
     margin: 0 1rem;
