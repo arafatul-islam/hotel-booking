@@ -12,6 +12,7 @@
 /build
 # firebase oAuth
 /Backend
+/hooks
 # misc
 .DS_Store
 .env.local
