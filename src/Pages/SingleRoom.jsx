@@ -14,7 +14,11 @@ const SingleRoom = (props) => {
   const { getRoom } = useContext(RoomContext)
   const room = getRoom(slug)
   const [toggle, setToggle] = useState(false)
-  const { user } = useFirebase()
+
+  const { user, emailVerified, setEmailVerified } = useFirebase()
+  const bookRoom = 'Book your room'
+  let showLink = ''
+
   if (!room) {
     return (
       <div className='error'>
@@ -36,20 +40,32 @@ const SingleRoom = (props) => {
     pets,
     images,
   } = room
+  emailVerified === false && setEmailVerified(null)
+
+  if (user && !emailVerified) {
+    showLink = (
+      <Link to='/email-verification' className='btn-book'>
+        {bookRoom}
+      </Link>
+    )
+  } else if (emailVerified) {
+    showLink = (
+      <Link className='btn-book' to='/reservation'>
+        {bookRoom}
+      </Link>
+    )
+  } else if (!user) {
+    showLink = (
+      <Link className='btn-book' to='/login'>
+        {bookRoom}
+      </Link>
+    )
+  }
+
   return (
     <div id='single-room'>
       <StyledHero img={images[0] || defaultImg}>
-        <Banner title={`${name} room`}>
-          {user ? (
-            <Link className='btn-primary' to='/reservation'>
-              Book
-            </Link>
-          ) : (
-            <Link className='btn-primary' to='/login'>
-              Book
-            </Link>
-          )}
-        </Banner>
+        <Banner title={`${name} `}>{showLink}</Banner>
       </StyledHero>
       <section className='single-room '>
         <div className='single-room-images'>
@@ -66,7 +82,7 @@ const SingleRoom = (props) => {
               >
                 360&#176; view
               </button>
-              {console.log(toggle)}
+
               {toggle && <Image360 />}
             </h3>
 

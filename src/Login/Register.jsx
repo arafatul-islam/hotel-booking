@@ -11,85 +11,31 @@ import {
   sendEmailVerification,
 } from 'firebase/auth'
 import { Link } from 'react-router-dom'
+import useFirebase from '../hooks/useFirebase'
 
 const Register = () => {
-  const [name, setName] = useState('')
-  const [userInfo, setUserInfo] = useState({})
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [errorMsg, setErrorMsg] = useState('')
-
-  // firebase oAuth
-  initializeAuthentication()
-  const googleProvider = new GoogleAuthProvider()
-  const auth = getAuth()
-
-  const handleGoogleLogin = () => {
-    signInWithPopup(auth, googleProvider).then((result) => {
-      const { displayName, email, photoURL } = result.user
-      const loggedInUser = {
-        name: displayName,
-        email: email,
-        photo: photoURL,
-      }
-      setUserInfo(loggedInUser)
-      console.log(userInfo)
-    })
-  }
-
-  const handleRegister = (e) => {
-    e.preventDefault()
-    if (password.length < 6) {
-      setErrorMsg('password should be at least 6 characters')
-      return
-    } else {
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((result) => {
-          // Signed in
-          const user = result.user
-          handleEmailVerification()
-          updateUserProfile()
-          console.log(user)
-        })
-        .catch((error) => {
-          const errorCode = error.code
-          setErrorMsg(error.message)
-        })
-      setErrorMsg('Registration completed')
-      setEmail('')
-      setPassword('')
-    }
-  }
-
-  const handleEmailVerification = () => {
-    sendEmailVerification(auth.currentUser).then((result) => {
-      setErrorMsg('Email verification link sent')
-    })
-  }
-
-  const updateUserProfile = () => {
-    updateProfile(auth.currentUser, {
-      displayName: name,
-    })
-      .then(() => {
-        // Profile updated!
-        // ...
-      })
-      .catch((error) => {
-        // An error occurred
-        // ...
-      })
-  }
-
-  const handleNameChange = (e) => {
-    setName(e.target.value)
-  }
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value)
-  }
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value)
-  }
+  const {
+    user,
+    setUser,
+    error,
+    setError,
+    email,
+    setEmail,
+    password,
+    setPassword,
+    toggle,
+    setToggle,
+    handleGoogleLogin,
+    handleEmailLogin,
+    handleResetPassword,
+    handleEmail,
+    handlePassword,
+    logOut,
+    handleRegister,
+    errorMsg,
+    setErrorMsg,
+    handleNameChange,
+  } = useFirebase()
 
   return (
     <div id='loginform'>
@@ -109,7 +55,7 @@ const Register = () => {
           <input
             type='email'
             placeholder='Enter your email'
-            onBlur={handleEmailChange}
+            onBlur={handleEmail}
             required
           />
         </div>
@@ -118,7 +64,7 @@ const Register = () => {
           <input
             type='password'
             placeholder='Enter your password'
-            onBlur={handlePasswordChange}
+            onBlur={handlePassword}
             required
           />
         </div>

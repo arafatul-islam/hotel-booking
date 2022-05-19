@@ -20,6 +20,7 @@ const Login = () => {
     handleEmail,
     handlePassword,
   } = useFirebase()
+
   return (
     <div id='loginform'>
       <h2 id='headerTitle'>Login</h2>

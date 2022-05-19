@@ -20,7 +20,7 @@ const Home = (props) => {
         </Banner>
       </Hero>
       <Services />
-      <FeaturedRooms></FeaturedRooms>
+      {/* <FeaturedRooms></FeaturedRooms> */}
     </>
   )
 }

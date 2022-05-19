@@ -21,7 +21,7 @@ export default [
       id: '1',
     },
     fields: {
-      name: 'single economy',
+      name: 'room-301',
       slug: 'single-economy',
       type: 'single',
       price: 1000,
@@ -80,7 +80,7 @@ export default [
       id: '2',
     },
     fields: {
-      name: 'single basic',
+      name: 'room-302',
       slug: 'single-basic',
       type: 'single',
       price: 1500,
@@ -139,7 +139,7 @@ export default [
       id: '3',
     },
     fields: {
-      name: 'single standard',
+      name: 'room-303',
       slug: 'single-standard',
       type: 'single',
       price: 2500,
@@ -198,7 +198,7 @@ export default [
       id: '4',
     },
     fields: {
-      name: 'single deluxe',
+      name: 'room-304',
       slug: 'single-deluxe',
       type: 'single',
       price: 3000,
@@ -257,7 +257,7 @@ export default [
       id: '5',
     },
     fields: {
-      name: 'double economy',
+      name: 'room-401',
       slug: 'double-economy',
       type: 'double',
       price: 2000,
@@ -316,7 +316,7 @@ export default [
       id: '6',
     },
     fields: {
-      name: 'double basic',
+      name: 'room-402',
       slug: 'double-basic',
       type: 'double',
       price: 2500,
@@ -375,7 +375,7 @@ export default [
       id: '7',
     },
     fields: {
-      name: 'double standard',
+      name: 'room-403',
       slug: 'double-standard',
       type: 'double',
       price: 3000,
@@ -434,7 +434,7 @@ export default [
       id: '8',
     },
     fields: {
-      name: 'double deluxe',
+      name: 'room-404',
       slug: 'double-deluxe',
       type: 'double',
       price: 4000,
@@ -493,7 +493,7 @@ export default [
       id: '9',
     },
     fields: {
-      name: 'family economy',
+      name: 'room-501',
       slug: 'family-economy',
       type: 'family',
       price: 3000,
@@ -552,7 +552,7 @@ export default [
       id: '10',
     },
     fields: {
-      name: 'family basic',
+      name: 'room-502',
       slug: 'family-basic',
       type: 'family',
       price: 3500,
@@ -611,7 +611,7 @@ export default [
       id: '11',
     },
     fields: {
-      name: 'family standard',
+      name: 'room-503',
       slug: 'family-standard',
       type: 'family',
       price: 4000,
@@ -670,7 +670,7 @@ export default [
       id: '12',
     },
     fields: {
-      name: 'family deluxe',
+      name: 'room-504',
       slug: 'family-deluxe',
       type: 'family',
       price: 5000,
@@ -729,7 +729,7 @@ export default [
       id: '13',
     },
     fields: {
-      name: 'presidential',
+      name: 'room-1001',
       slug: 'presidential-room',
       type: 'presidential',
       price: 6000,

@@ -10,6 +10,7 @@
   --mainBlack: #222;
   --mainGrey: #ececec;
   --darkGrey: #cfcfcf;
+  --red: rgb(250, 127, 105);
   --mainTransition: all 0.3s linear;
   --mainSpacing: 3px;
   --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
@@ -68,7 +69,24 @@ h6 {
   text-transform: uppercase;
   cursor: pointer;
 }
+
 .btn-primary:hover {
+  background: transparent;
+  color: var(--primaryColor);
+}
+.btn-book {
+  display: inline-block;
+  text-decoration: none;
+  letter-spacing: var(--mainSpacing);
+  color: var(--mainBlack);
+  background: var(--red);
+  padding: 0.8rem 1.8rem;
+  border: 3px solid var(--red);
+  transition: var(--mainTransition);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.btn-book:hover {
   background: transparent;
   color: var(--primaryColor);
 }
@@ -327,6 +345,7 @@ h6 {
 /* services */
 .services {
   padding: 5rem 0;
+  margin-bottom: 11em;
 }
 .services {
   background: var(--darkGrey);

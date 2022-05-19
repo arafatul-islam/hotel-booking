@@ -41,7 +41,6 @@ const Navbar = () => {
           )}
           {user ? (
             <li>
-              {console.log(user)}
               <Link to=''>
                 <button onClick={logOut} className='btn-primary'>
                   log out
