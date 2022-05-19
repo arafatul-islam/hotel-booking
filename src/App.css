@@ -656,3 +656,21 @@ input[type='radio'] {
     height: 40vh;
   }
 }
+/* reservation */
+
+.reservation {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(148, 142, 142);
+  min-height: 45vh;
+  align-items: center;
+}
+.reserve-date {
+  text-align: center;
+  margin: 5em 0;
+  /* border: 1px solid; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
