@@ -1,15 +1,15 @@
 import React, { useContext } from 'react'
 import { RoomContext } from '../Context'
 import useFirebase from '../hooks/useFirebase'
+import useHook from '../hooks/useHook'
 import Banner from './Banner'
 import Hero from './Hero'
 import ReserveDate from './ReserveDate'
 import Title from './Title'
 
 const Reservation = (props) => {
-  const { room } = useFirebase()
-  const { getRoom } = useContext(RoomContext)
-
+  const { bookRoom } = useHook()
+  console.log(bookRoom)
   return (
     <>
       <div className=''>

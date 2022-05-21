@@ -11,15 +11,10 @@ import Login from './Login/Login'
 import Register from './Login/Register'
 import Reservation from './Components/Reservation'
 import EmailVerification from './Components/EmailVerification'
-import { useContext } from 'react'
-import { RoomContext } from './Context'
 
 // import ShowSingleRoom from './Components/ShowSingleRoom'
 
 function App() {
-  const { slug } = useParams()
-  const { getRoom } = useContext(RoomContext)
-  const room = getRoom(slug)
   return (
     <div>
       <Navbar />
@@ -32,7 +27,7 @@ function App() {
         <Route path=':slug' element={<SingleRoom />}>
           <Route path=':img' element={<Image360 />}></Route>
         </Route>
-        <Route path='reservation' element={<Reservation room={room} />} />
+        <Route path='reservation' element={<Reservation />} />
         <Route path='email-verification' element={<EmailVerification />} />
         <Route path='*' element={<Error />} />
       </Routes>

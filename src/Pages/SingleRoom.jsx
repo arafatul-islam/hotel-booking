@@ -11,17 +11,28 @@ import ReactPlayer from 'react-player'
 import VRvideos from '../Components/VRvideos'
 import useHook from '../hooks/useHook'
 import Feedback from '../Components/Feedback'
-
+import items from './../data'
 const SingleRoom = (props) => {
   const { slug } = useParams()
   const { getRoom } = useContext(RoomContext)
   const room = getRoom(slug)
 
   const { user, emailVerified, setEmailVerified, setErrorMsg } = useFirebase()
-  const { toggle, setToggle, toggleVR, setToggleVR, roomName, setRoomName } =
-    useHook()
+  const {
+    toggle,
+    setToggle,
+    toggleVR,
+    setToggleVR,
+    desiredRoom,
+    setDesiredRoom,
+  } = useHook()
+
   const bookRoom = 'Book your room'
   let showLink = ''
+
+  const RoomNameContainer = items.map((room) => room.fields.slug)
+  // console.log(slug)
+  const RoomName = RoomNameContainer.filter((element) => element === slug)
 
   if (!room) {
     return (
@@ -55,7 +66,14 @@ const SingleRoom = (props) => {
     )
   } else if (emailVerified) {
     showLink = (
-      <Link className='btn-book' to='/reservation'>
+      <Link
+        onClick={() => {
+          setDesiredRoom(RoomName[0])
+          console.log(desiredRoom)
+        }}
+        className='btn-book'
+        to='/reservation'
+      >
         {bookRoom}
       </Link>
     )
