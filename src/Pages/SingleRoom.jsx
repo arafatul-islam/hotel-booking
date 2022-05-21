@@ -4,18 +4,22 @@ import { RoomContext } from '../Context'
 import Banner from '../Components/Banner'
 import StyledHero from '../Components/StyledHero'
 import defaultImg from '../images/room-1.jpeg'
-import StarRating from '../Components/StarRating'
 import Image360 from '../Components/Image360'
 import RoomsContainer from '../Components/RoomsContainer'
 import useFirebase from '../hooks/useFirebase'
+import ReactPlayer from 'react-player'
+import VRvideos from '../Components/VRvideos'
+import useHook from '../hooks/useHook'
+import Feedback from '../Components/Feedback'
 
 const SingleRoom = (props) => {
   const { slug } = useParams()
   const { getRoom } = useContext(RoomContext)
   const room = getRoom(slug)
-  const [toggle, setToggle] = useState(false)
 
-  const { user, emailVerified, setEmailVerified } = useFirebase()
+  const { user, emailVerified, setEmailVerified, setErrorMsg } = useFirebase()
+  const { toggle, setToggle, toggleVR, setToggleVR, roomName, setRoomName } =
+    useHook()
   const bookRoom = 'Book your room'
   let showLink = ''
 
@@ -40,6 +44,7 @@ const SingleRoom = (props) => {
     pets,
     images,
   } = room
+
   emailVerified === false && setEmailVerified(null)
 
   if (user && !emailVerified) {
@@ -63,7 +68,7 @@ const SingleRoom = (props) => {
   }
 
   return (
-    <div id='single-room'>
+    <div className='single-room '>
       <StyledHero img={images[0] || defaultImg}>
         <Banner title={`${name} `}>{showLink}</Banner>
       </StyledHero>
@@ -82,8 +87,19 @@ const SingleRoom = (props) => {
               >
                 360&#176; view
               </button>
-
-              {toggle && <Image360 />}
+              <button
+                className='btn-primary'
+                onClick={() => setToggleVR(!toggleVR)}
+              >
+                {' '}
+                VR Video
+              </button>
+              {toggle && (
+                <div className='img-vr-container'>
+                  <Image360 />
+                </div>
+              )}
+              {toggleVR && <VRvideos />}
             </h3>
 
             <h3>Details</h3>
@@ -106,11 +122,12 @@ const SingleRoom = (props) => {
             {extras.map((item, index) => {
               return <li key={index}>-{item}</li>
             })}
+            <div>
+              <Feedback />
+            </div>
             <div />
-            <StarRating />
           </section>
         </div>
-        {/* <RoomsContainer /> */}
       </section>
     </div>
   )

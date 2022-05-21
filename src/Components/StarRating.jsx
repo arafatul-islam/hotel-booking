@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { FaStar } from 'react-icons/fa'
+import useHook from '../hooks/useHook'
 
-const StarRating = () => {
-  const [rating, setRating] = useState(null)
-  const [hover, setHover] = useState(null)
+const StarRating = (props) => {
+  const { rating, setRating, hover, setHover } = useHook()
+
   return (
     <div>
       <h6>Customer Ratings:</h6>
@@ -15,7 +16,7 @@ const StarRating = () => {
             <input type='radio' name='rating' value={ratingValue} />
             <FaStar
               className='star'
-              size={20}
+              size={35}
               onClick={() => setRating(ratingValue)}
               onMouseEnter={() => setHover(ratingValue)}
               onMouseLeave={() => setHover(null)}
