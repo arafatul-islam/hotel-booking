@@ -479,7 +479,7 @@ h6 {
 
 .single-room {
   padding: 5rem 0;
-  border: 1px solid;
+  /* border: 1px solid; */
 }
 .single-room-images {
   width: 80vw;
@@ -700,7 +700,15 @@ input[type='radio'] {
   padding: 10px 10px;
   font-weight: 800;
   font-size: 1.3rem;
+  margin: 5rem 0;
 }
 .day-diff {
   margin-top: 25px;
 }
+
+.stripe-container {
+  margin-top: 20px;
+}
+
+/* end reservation */
+/* ----------------------------------------------------------------- */

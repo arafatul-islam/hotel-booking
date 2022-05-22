@@ -1,15 +1,10 @@
 import React, { useContext } from 'react'
-import { RoomContext } from '../Context'
-import useFirebase from '../hooks/useFirebase'
-import useHook from '../hooks/useHook'
 import Banner from './Banner'
 import Hero from './Hero'
 import ReserveDate from './ReserveDate'
 import Title from './Title'
 
-const Reservation = (props) => {
-  const { bookRoom } = useHook()
-  console.log(bookRoom)
+const Reservation = ({ reservedRoom }) => {
   return (
     <>
       <div className=''>
@@ -22,7 +17,7 @@ const Reservation = (props) => {
       </div>
       <div className='reserve-date'>
         <Title title='Reserve Your Room ' />
-        <ReserveDate />
+        <ReserveDate reservedRoom={reservedRoom} />
       </div>
     </>
   )

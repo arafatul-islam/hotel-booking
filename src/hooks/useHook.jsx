@@ -6,7 +6,8 @@ const useHook = () => {
   const [toggle, setToggle] = useState(false)
   const [toggleVR, setToggleVR] = useState(false)
   const [review, setReview] = useState('')
-  const [desiredRoom, setDesiredRoom] = useState('')
+  const [reservedRoom, setReservedRoom] = useState('')
+  const [getSlug, setGetSlug] = useState('')
 
   const handleFeedback = (e) => {
     e.preventDefault()
@@ -19,8 +20,10 @@ const useHook = () => {
   }
 
   return {
-    desiredRoom,
-    setDesiredRoom,
+    getSlug,
+    setGetSlug,
+    reservedRoom,
+    setReservedRoom,
     rating,
     setRating,
     hover,
