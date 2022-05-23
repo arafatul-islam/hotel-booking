@@ -25,7 +25,15 @@ const Login = () => {
     <>
       {user ? (
         <div id='profile-form'>
-          <img src={user.photoURL} alt={user.email} />
+          {user.photoURL ? (
+            <img src={user.photoURL} alt={user.email} />
+          ) : (
+            <img
+              src='https://images.unsplash.com/photo-1534294668821-28a3054f4256?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471'
+              alt='unknown user'
+              width='200px'
+            />
+          )}
           <p>
             <span style={{ fontWeight: '500' }}>Name:</span>{' '}
             {user.displayName ? user.displayName : 'Not found'}
