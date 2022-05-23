@@ -29,16 +29,11 @@ const Navbar = () => {
           <li>
             <Link to='rooms'>Rooms</Link>
           </li>
-          {!user ? (
-            <li>
-              {' '}
-              <Link to='/login'>Login</Link>
-            </li>
-          ) : (
-            <li>
-              <Link to=''>{user.displayName}</Link>
-            </li>
-          )}
+
+          <li>
+            <Link to='/login'>{!user ? 'Login' : user.displayName}</Link>
+          </li>
+
           {user ? (
             <li>
               <Link to=''>

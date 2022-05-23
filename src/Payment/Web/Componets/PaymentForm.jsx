@@ -25,6 +25,7 @@ const CARD_OPTIONS = {
 
 const PaymentForm = () => {
   const [success, setSuccess] = useState(false)
+  const [paymentSuccess, setPaymentSuccess] = useState('')
   const stripe = useStripe()
   const elements = useElements()
 
@@ -43,7 +44,7 @@ const PaymentForm = () => {
           id,
         })
         if (response.data.success) {
-          console.log('successful payment')
+          setPaymentSuccess('successful payment')
           setSuccess(true)
         }
       } catch (error) {
@@ -67,6 +68,7 @@ const PaymentForm = () => {
       ) : (
         <div>
           <button className='btn-book'>
+            <p>{paymentSuccess}</p>
             <p>Thank You For Being With Us!</p>
           </button>
         </div>

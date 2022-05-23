@@ -657,7 +657,11 @@ textarea {
 }
 /* end of rooms fitler*/
 
-/* star rating */
+/* feedback & star rating */
+.feedback {
+  margin: 5rem 0;
+  padding: 10px 0;
+}
 input[type='radio'] {
   display: none;
 }

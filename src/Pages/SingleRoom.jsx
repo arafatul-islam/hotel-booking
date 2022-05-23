@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Link, Outlet, useParams } from 'react-router-dom'
+import { Link, Navigate, Outlet, useParams } from 'react-router-dom'
 import { RoomContext } from '../Context'
 import Banner from '../Components/Banner'
 import StyledHero from '../Components/StyledHero'
@@ -126,7 +126,7 @@ const SingleRoom = (props) => {
             {extras.map((item, index) => {
               return <li key={index}>-{item}</li>
             })}
-            <div>
+            <div className='feedback'>
               <Feedback />
             </div>
             <div />
