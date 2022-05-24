@@ -3,7 +3,7 @@ import Home from './Pages/Home'
 import Rooms from './Pages/Rooms'
 import SingleRoom from './Pages/SingleRoom'
 import Error from './Pages/Error'
-import { Route, Routes, useParams } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
 import Image360 from './Components/Image360'
@@ -11,8 +11,9 @@ import Login from './Login/Login'
 import Register from './Login/Register'
 import Reservation from './Components/Reservation'
 import EmailVerification from './Components/EmailVerification'
-import { useState } from 'react'
 import useHook from './hooks/useHook'
+import Profile from './Login/Profile'
+import PrivateOutlet from './PrivateRoutes/PrivateOutlet'
 
 // import ShowSingleRoom from './Components/ShowSingleRoom'
 
@@ -28,17 +29,24 @@ function App() {
       <Routes>
         <Route path='home' element={<Home />} />
         <Route path='/' element={<Home />} />
-        <Route path='login' element={<Login />} />
+        <Route path='/login' element={<Login />} />
         <Route path='register' element={<Register />} />
+        <Route path='email-verification' element={<EmailVerification />} />
+
         <Route path='rooms' element={<Rooms />}></Route>
         <Route path=':slug' element={<SingleRoom roomName={roomName} />}>
           <Route path=':img' element={<Image360 />}></Route>
         </Route>
-        <Route
-          path='reservation'
-          element={<Reservation reservedRoom={reservedRoom} />}
-        />
-        <Route path='email-verification' element={<EmailVerification />} />
+        {/* private routes  */}
+        <Route path='/*' element={<PrivateOutlet />}>
+          <Route path='email-verification' element={<EmailVerification />} />
+          <Route path='profile' element={<Profile />} />
+          <Route
+            path='reservation'
+            element={<Reservation roomName={roomName} />}
+          />
+        </Route>
+
         <Route path='*' element={<Error />} />
       </Routes>
       <Footer />

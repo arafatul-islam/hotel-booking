@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import logo from '../images/logo.svg'
 import { FaAlignRight } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import useFirebase from '../hooks/useFirebase'
+import useAuth from './../hooks/useAuth'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const handleToggle = () => {
     setIsOpen(!isOpen)
   }
-  const { user, logOut } = useFirebase()
+  const { user, logOut } = useAuth()
 
   return (
     <nav className='navbar'>
@@ -30,20 +30,27 @@ const Navbar = () => {
             <Link to='rooms'>Rooms</Link>
           </li>
 
-          <li>
-            <Link to='/login'>{!user ? 'Login' : user.displayName}</Link>
-          </li>
-
-          {user ? (
+          {!user ? (
             <li>
-              <Link to=''>
-                <button onClick={logOut} className='btn-primary'>
-                  log out
-                </button>
-              </Link>
+              <Link to='login'>Login</Link>
             </li>
           ) : (
-            ''
+            <>
+              <li>
+                {user.emailVerified ? (
+                  <Link to='profile'>{user.displayName}</Link>
+                ) : (
+                  <Link to='email-verification'>user</Link>
+                )}
+              </li>
+              <li>
+                <Link to=''>
+                  <button onClick={logOut} className='btn-primary'>
+                    Log out
+                  </button>
+                </Link>
+              </li>
+            </>
           )}
         </ul>
       </div>

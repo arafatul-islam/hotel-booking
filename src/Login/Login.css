@@ -36,6 +36,10 @@ html {
   border-radius: 25px;
 }
 
+#profile-form p {
+  display: flex;
+}
+
 #headerTitle {
   text-align: center;
   font-family: 'open sans', sans-serif;

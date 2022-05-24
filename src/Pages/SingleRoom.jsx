@@ -1,16 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, Navigate, Outlet, useParams } from 'react-router-dom'
-import { RoomContext } from '../Context'
+import { RoomContext } from '../Context/Context'
 import Banner from '../Components/Banner'
 import StyledHero from '../Components/StyledHero'
 import defaultImg from '../images/room-1.jpeg'
 import Image360 from '../Components/Image360'
-import RoomsContainer from '../Components/RoomsContainer'
-import useFirebase from '../hooks/useFirebase'
-import ReactPlayer from 'react-player'
 import VRvideos from '../Components/VRvideos'
 import useHook from '../hooks/useHook'
 import Feedback from '../Components/Feedback'
+import useAuth from '../hooks/useAuth'
 
 const SingleRoom = (props) => {
   const { getSlug, setGetSlug, toggle, setToggle, toggleVR, setToggleVR } =
@@ -21,7 +19,7 @@ const SingleRoom = (props) => {
   const { getRoom } = useContext(RoomContext)
   const room = getRoom(slug)
   // firebase oAuth
-  const { user, emailVerified, setEmailVerified, setErrorMsg } = useFirebase()
+  const { user, emailVerified, setEmailVerified } = useAuth()
   // hook
 
   const bookRoom = 'Book your room'
