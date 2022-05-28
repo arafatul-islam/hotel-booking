@@ -3,7 +3,7 @@ import Home from './Pages/Home'
 import Rooms from './Pages/Rooms'
 import SingleRoom from './Pages/SingleRoom'
 import Error from './Pages/Error'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
 import Image360 from './Components/Image360'
@@ -14,6 +14,7 @@ import EmailVerification from './Components/EmailVerification'
 import useHook from './hooks/useHook'
 import Profile from './Login/Profile'
 import PrivateOutlet from './PrivateRoutes/PrivateOutlet'
+import Stuff from './Components/Stuff'
 
 // import ShowSingleRoom from './Components/ShowSingleRoom'
 
@@ -28,7 +29,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='home' element={<Home />} />
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Navigate to='home' />} />
+        <Route path='stuff' element={<Stuff />} />
+
         <Route path='/login' element={<Login />} />
         <Route path='register' element={<Register />} />
         <Route path='email-verification' element={<EmailVerification />} />

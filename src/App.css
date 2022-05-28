@@ -215,11 +215,14 @@ h6 {
   }
 }
 /* end of navbar */
-/* Footer */
+/* f */
 footer {
   margin-top: auto;
 }
 .footer {
+  bottom: 0;
+  width: 100%;
+  min-height: 60px;
   padding: 0.75rem 2rem;
   background: #222;
   color: var(--mainWhite);
