@@ -9,6 +9,15 @@ body {
 html {
   font-size: 100%;
 }
+html,
+body,
+#root {
+  height: 100%;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+}
 
 #loginform {
   max-width: 500px;
@@ -23,8 +32,8 @@ html {
   border-radius: 25px;
 }
 #profile-form {
-  max-width: 700px;
-  min-width: 320px;
+  /* max-width: 700px; */
+  min-width: 280px;
   min-height: 300px;
   max-height: 1000px;
   width: 30%;
@@ -165,4 +174,9 @@ html {
   color: rgb(107, 137, 84);
   font-size: 1.2rem;
   cursor: pointer;
+}
+footer {
+  margin-top: auto;
+  height: 150px;
+  width: 100%;
 }

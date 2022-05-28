@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Banner from '../Components/Banner'
-import FeaturedRooms from '../Components/FeaturedRooms'
+import '../App.css'
 import Hero from '../Components/Hero'
 import Services from '../Components/Services'
-import StyledHero from '../Components/StyledHero'
+import Map from '../Components/Map'
 
 const Home = (props) => {
   return (
     <>
-      <Hero>
+      <Hero hero='travelHero'>
         <Banner
           title='Luxurious Rooms'
           subtitle='Delux Room Starts @ &#2547;4000'
@@ -20,6 +20,7 @@ const Home = (props) => {
         </Banner>
       </Hero>
       <Services />
+      <Map />
     </>
   )
 }

@@ -27,6 +27,21 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   line-height: 1.4;
 }
+html,
+body,
+#root {
+  height: 100%;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+}
+#map {
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
 h1 {
   font-size: 3em;
   line-height: 1;
@@ -201,18 +216,17 @@ h6 {
 }
 /* end of navbar */
 /* Footer */
+footer {
+  margin-top: auto;
+}
 .footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  min-height: 60px;
   padding: 0.75rem 2rem;
   background: #222;
   color: var(--mainWhite);
 }
 .footer-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 .footer-btn {
   background: transparent;
@@ -272,17 +286,25 @@ h6 {
 /* End of Footer */
 /* Hero */
 .defaultHero,
-.roomsHero {
+.roomsHero,
+.travelHero {
   min-height: calc(100vh - 66px);
   background: url('./images/defaultBcg.jpeg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 25px;
 }
 .roomsHero {
-  background-image: url('./images/room-2.jpeg');
   min-height: 60vh;
+  background-image: url('./images/room-2.jpeg');
 }
+
+.travelHero {
+  min-height: 89vh;
+  background-image: url('./images/Rectangle-1.png');
+}
+
 /* End of Hero */
 /* Banner */
 .banner {

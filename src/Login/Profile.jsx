@@ -25,8 +25,7 @@ const Profile = () => {
         {user.email ? user.email : 'Not found'}
       </p>
       <p>
-        <span style={{ fontWeight: '500' }}>Email Verified:</span>{' '}
-        {user.emailVerified ? 'Email verified' : 'Not verified'}
+        <span style={{ fontWeight: '500' }}>Email Verified:</span>
       </p>
       <p>
         <span style={{ fontWeight: '500' }}>Phone:</span>{' '}

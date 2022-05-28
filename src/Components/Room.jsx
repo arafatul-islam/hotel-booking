@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link, NavLink, useLocation, useParams } from 'react-router-dom'
-import defaultImg from '../images/room-1.jpeg'
+import defaultImg from '../images/Rectangle-1.png'
 import PropTypes from 'prop-types'
-import { HashLink } from 'react-router-hash-link'
 
 const Room = (props) => {
   const { name, slug, images, price } = props.room
