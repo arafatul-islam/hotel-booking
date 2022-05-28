@@ -28,6 +28,3 @@ const Map = () => {
 }
 
 export default Map
-
-// 21.417477463250542                91.98089962798262
-// https://maps.googleapis.com/maps/api/js?key=&callback=initMap

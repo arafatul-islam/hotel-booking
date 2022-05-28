@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { addDays } from 'date-fns'
 import ShowStripe from './ShowStripe'
-import useHook from '../hooks/useHook'
+import Bkash from './../Payment/Bkash/Bkash'
 
 const ReserveDate = () => {
   const [dateRange, setDateRange] = useState([null, null])

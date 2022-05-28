@@ -68,12 +68,6 @@ const PaymentForm = () => {
       ) : (
         ''()
       )}
-      <div>
-        <button className='btn-book'>
-          <p>{paymentSuccess}</p>
-          <p>Thank You For Being With Us!</p>
-        </button>
-      </div>
     </>
   )
 }

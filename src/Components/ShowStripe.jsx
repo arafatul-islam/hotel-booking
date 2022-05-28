@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Bkash from '../Payment/Bkash/Bkash'
 import StripeContainer from '../Payment/Web/Componets/StripeContainer'
 
 const ShowStripe = () => {
@@ -7,7 +8,11 @@ const ShowStripe = () => {
     <div>
       <h1>Hotel Room Payment</h1>
       {showItem ? (
-        <StripeContainer />
+        <>
+          <StripeContainer />
+          <p style={{ textAlign: 'center', marginTop: '18px' }}>Or Use bKash</p>
+          <Bkash />
+        </>
       ) : (
         <>
           {' '}
