@@ -9,7 +9,7 @@ import Map from '../Components/Map'
 const Home = (props) => {
   return (
     <>
-      <Hero hero='travelHero'>
+      <Hero hero='defaultHero'>
         <Banner
           title='Luxurious Rooms'
           subtitle='Delux Room Starts @ &#2547;4000'

@@ -3,11 +3,18 @@ import stuff from './../Fake-data/Stuff'
 import './../App.css'
 import Title from './Title'
 import { FaPhone, FaUser } from 'react-icons/fa'
+import Banner from './Banner'
+import Hero from './Hero'
 
 const Stuff = () => {
   return (
     <section className='service'>
-      <Title title='Our Stuff' />
+      <Hero hero='defaultHero'>
+        <Banner
+          title='Our Stuff'
+          subtitle='Feel Free To Contact With Our Stuff In Your Need'
+        ></Banner>
+      </Hero>
       <div className='services-center'>
         {stuff.map((item, indx) => {
           return (

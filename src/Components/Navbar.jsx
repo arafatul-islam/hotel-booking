@@ -30,6 +30,27 @@ const Navbar = () => {
             <Link to='rooms'>Rooms</Link>
           </li>
 
+          {user ? (
+            <li>
+              <>
+                {' '}
+                <Link to='stuff'>Our Stuff</Link>
+              </>{' '}
+            </li>
+          ) : (
+            ''
+          )}
+          {user ? (
+            <li>
+              <>
+                {' '}
+                <Link to='food-service'>Food Service</Link>
+              </>{' '}
+            </li>
+          ) : (
+            ''
+          )}
+
           {!user ? (
             <li>
               <Link to='login'>Login</Link>
@@ -38,7 +59,11 @@ const Navbar = () => {
             <>
               <li>
                 {user.emailVerified ? (
-                  <Link to='profile'>{user.displayName}</Link>
+                  <Link to='profile '>
+                    <button className='btn-book' style={{ fontWeight: '900' }}>
+                      {user.displayName}
+                    </button>
+                  </Link>
                 ) : (
                   <Link to='email-verification'>user</Link>
                 )}

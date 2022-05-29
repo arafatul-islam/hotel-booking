@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link, NavLink, useLocation, useParams } from 'react-router-dom'
-import defaultImg from '../images/Rectangle-1.png'
+import defaultImg from '../images/defaultBcg.jpeg'
 import PropTypes from 'prop-types'
 
 const Room = (props) => {

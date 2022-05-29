@@ -290,8 +290,7 @@ footer {
 /* End of Footer */
 /* Hero */
 .defaultHero,
-.roomsHero,
-.travelHero {
+.roomsHero {
   min-height: calc(100vh - 66px);
   background: url('./images/defaultBcg.jpeg') center/cover no-repeat;
   display: flex;
@@ -302,11 +301,6 @@ footer {
 .roomsHero {
   min-height: 60vh;
   background-image: url('./images/room-2.jpeg');
-}
-
-.travelHero {
-  min-height: 89vh;
-  background-image: url('./images/Rectangle-1.png');
 }
 
 /* End of Hero */

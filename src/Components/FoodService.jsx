@@ -15,10 +15,14 @@ const FoodService = () => {
         <div className='services-center'>
           {breakfast.map((item, indx) => {
             return (
-              <article key={indx} className='services'>
+              <article
+                key={indx}
+                style={{ padding: '20px 35px' }}
+                className='services'
+              >
                 <img src={item.img} width={150} alt={item.name} />
                 <h6>Name: {item.name}</h6>
-                <p>Description: {item.des}</p>
+
                 <p>Type: {item.type} </p>
                 <p style={{ marginBottom: '15px' }}>
                   Price: &#2547; {item.price}{' '}
@@ -51,10 +55,14 @@ const FoodService = () => {
         <div className='services-center'>
           {launch.map((item, indx) => {
             return (
-              <article key={indx} className='services'>
+              <article
+                style={{ padding: '20px 35px' }}
+                key={indx}
+                className='services'
+              >
                 <img src={item.img} width={150} alt={item.name} />
                 <h6>Name: {item.name}</h6>
-                <p>Description: {item.des}</p>
+
                 <p>Type: {item.type} </p>
                 <p style={{ marginBottom: '15px' }}>
                   Price: &#2547; {item.price}{' '}
@@ -87,10 +95,13 @@ const FoodService = () => {
         <div className='services-center'>
           {dinner.map((item, indx) => {
             return (
-              <article key={indx} className='services'>
+              <article
+                style={{ padding: '20px 35px' }}
+                key={indx}
+                className='services'
+              >
                 <img src={item.img} width={150} alt={item.name} />
                 <h6>Name: {item.name}</h6>
-                <p>Description: {item.des}</p>
                 <p>Type: {item.type} </p>
                 <p style={{ marginBottom: '15px' }}>
                   Price: &#2547; {item.price}{' '}

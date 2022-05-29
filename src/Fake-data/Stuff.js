@@ -1,51 +1,51 @@
 const stuff = [
   {
-    name: 'Salina',
+    name: 'Tarek',
     title: 'receptionist',
     contact: '999-1',
   },
   {
-    name: 'Barak',
+    name: 'Tahmid',
     title: 'Manager',
     contact: '999-2',
   },
   {
-    name: 'Joswah',
+    name: 'Joshim',
     title: 'Cleaner',
     contact: '999-3',
   },
   {
-    name: 'Molox',
+    name: 'Manik',
     title: 'Cleaner',
     contact: '999-3',
   },
   {
-    name: 'Rebeca',
+    name: 'Rasel',
     title: 'Waitress',
     contact: '999-4',
   },
   {
-    name: 'Rossie',
+    name: 'Ayman',
     title: 'Chef',
     contact: '999-5',
   },
   {
-    name: 'Nawmi',
+    name: 'Nasif',
     title: 'Waitress',
     contact: '999-4',
   },
   {
-    name: 'Jolo',
+    name: 'Joynal',
     title: 'Waitress',
     contact: '999-4',
   },
   {
-    name: 'Dhrub',
+    name: 'Durjoy',
     title: 'Photographar',
     contact: '999-6',
   },
   {
-    name: 'Macron',
+    name: 'Masum',
     title: 'Driver',
     contact: '999-6',
   },
@@ -55,7 +55,7 @@ const stuff = [
     contact: '999-6',
   },
   {
-    name: 'Joinal',
+    name: 'Soffi',
     title: 'Electric Mechanic',
     contact: '999-6',
   },
