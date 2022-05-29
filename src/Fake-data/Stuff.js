@@ -44,6 +44,21 @@ const stuff = [
     title: 'Photographar',
     contact: '999-6',
   },
+  {
+    name: 'Macron',
+    title: 'Driver',
+    contact: '999-6',
+  },
+  {
+    name: 'Kala Mia',
+    title: 'Lift Operator',
+    contact: '999-6',
+  },
+  {
+    name: 'Joinal',
+    title: 'Electric Mechanic',
+    contact: '999-6',
+  },
 ]
 
 export default stuff

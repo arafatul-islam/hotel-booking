@@ -1,24 +1,42 @@
 import React from 'react'
 import stuff from './../Fake-data/Stuff'
 import './../App.css'
+import Title from './Title'
+import { FaPhone, FaUser } from 'react-icons/fa'
 
 const Stuff = () => {
   return (
-    <>
-      {stuff.map((item) => (
-        <div
-          style={{
-            border: '1px solid black',
-            margin: '2px',
-            display: 'flex',
-          }}
-        >
-          <h1>Name:{item.name}</h1>
-          <h1>Title:{item.title}</h1>
-          <h1>Contact:{item.contact}</h1>
-        </div>
-      ))}
-    </>
+    <section className='service'>
+      <Title title='Our Stuff' />
+      <div className='services-center'>
+        {stuff.map((item, indx) => {
+          return (
+            <article key={indx} className='services'>
+              <h2>
+                <FaUser />
+              </h2>
+              <h6>Name: {item.name}</h6>
+              <p>Title: {item.title}</p>
+              <p
+                style={{
+                  textAlign: 'center',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  padding: '3px',
+                }}
+              >
+                <FaPhone color='green' size={22} />
+                <a href='tel:' style={{ color: 'red', padding: '5px' }}>
+                  {' '}
+                  {item.contact}
+                </a>
+              </p>
+            </article>
+          )
+        })}
+      </div>
+    </section>
   )
 }
 
