@@ -105,7 +105,8 @@ h6 {
 }
 .btn-book:hover {
   background: transparent;
-  color: var(--primaryColor);
+  color: rgb(237, 143, 126);
+  font-weight: bolder;
 }
 .btn-logout {
   display: inline-block;

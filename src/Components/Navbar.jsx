@@ -60,7 +60,10 @@ const Navbar = () => {
               <li>
                 {user.emailVerified ? (
                   <Link to='profile '>
-                    <button className='btn-book' style={{ fontWeight: '900' }}>
+                    <button
+                      className='btn-primary'
+                      style={{ fontWeight: '900' }}
+                    >
                       {user.displayName}
                     </button>
                   </Link>
@@ -70,7 +73,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to=''>
-                  <button onClick={logOut} className='btn-primary'>
+                  <button onClick={logOut} className='btn-book'>
                     Log out
                   </button>
                 </Link>
