@@ -3,6 +3,8 @@
 const firebaseConfig = {
   apiKey: 'AIzaSyAeVTvLOohESXUDmqFzKTiAVcqs6arkzos',
   authDomain: 'desihotelbooking-8a99f.firebaseapp.com',
+  databaseURL:
+    'https://desihotelbooking-8a99f-default-rtdb.asia-southeast1.firebasedatabase.app',
   projectId: 'desihotelbooking-8a99f',
   storageBucket: 'desihotelbooking-8a99f.appspot.com',
   messagingSenderId: '98761871538',
