@@ -17,7 +17,7 @@ const useHook = () => {
 
   // review store in fireStore
   const dbSlugRef = collection(db, `${exportSlug}`)
-  const dbUsers = collection(db, user.displayName)
+  const dbUsers = collection(db, `${user?.email}`)
 
   const handleFeedback = async (e) => {
     e.preventDefault()

@@ -38,7 +38,7 @@ const FoodService = () => {
                 className='services'
               >
                 <img src={item.img} width={150} alt={item.name} />
-                <h6>Name: {item.name}</h6>
+                <h6> {item.name}</h6>
 
                 <p>Type: {item.type} </p>
                 <p style={{ marginBottom: '15px' }}>
@@ -95,7 +95,7 @@ const FoodService = () => {
                 className='services'
               >
                 <img src={item.img} width={150} alt={item.name} />
-                <h6>Name: {item.name}</h6>
+                <h6>{item.name}</h6>
 
                 <p>Type: {item.type} </p>
                 <p style={{ marginBottom: '15px' }}>
@@ -152,7 +152,7 @@ const FoodService = () => {
                 className='services'
               >
                 <img src={item.img} width={150} alt={item.name} />
-                <h6>Name: {item.name}</h6>
+                <h6>{item.name}</h6>
 
                 <p>Type: {item.type} </p>
                 <p style={{ marginBottom: '15px' }}>

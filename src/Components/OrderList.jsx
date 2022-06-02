@@ -8,7 +8,7 @@ import Title from './Title'
 const OrderList = () => {
   const { user, addedFood, setAddedFood } = useAuth()
   // food details from db
-  const dbUsers = collection(db, user.displayName)
+  const dbUsers = collection(db, user?.email)
   useEffect(() => {
     //getting food  from db
     const getSlugs = async () => {
