@@ -28,7 +28,7 @@ const OrderList = () => {
               <img width={100} src={food.img} alt={food.foodName} />
               <h4>Name: {food.foodName}</h4>
               <h5>Price: {food.foodPrice}</h5>
-              <h5>Total Bill: {food.totalPrice}</h5>
+              {/* <h5>Total Bill: {food.totalPrice}</h5> */}
             </div>
           </section>
         ))}
