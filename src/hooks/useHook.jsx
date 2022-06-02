@@ -12,11 +12,12 @@ const useHook = () => {
   const [review, setReview] = useState('')
   const [reservedRoom, setReservedRoom] = useState('')
   const [getSlug, setGetSlug] = useState('')
-  const { user, rating, disableReview, setDisableReview } = useAuth()
+  const { user, rating, disableReview, setDisableReview, cart, setCart } =
+    useAuth()
 
   // review store in fireStore
   const dbSlugRef = collection(db, `${exportSlug}`)
-  const dbUsers = collection(db, 'users')
+  const dbUsers = collection(db, user.displayName)
 
   const handleFeedback = async (e) => {
     e.preventDefault()
@@ -33,7 +34,20 @@ const useHook = () => {
     console.log(disableReview)
     console.log(exportSlug)
   }
+  const handleOrder = async (foodName, foodPrice, foodImg) => {
+    cart.push(foodPrice)
+    setCart([...cart], foodPrice)
+    const totalPrice = cart.reduce((p, c) => p + c, 0)
 
+    // store to db food data
+    await addDoc(dbUsers, {
+      name: user.displayName,
+      foodName: foodName,
+      foodPrice: foodPrice,
+      totalPrice: totalPrice,
+      img: foodImg,
+    })
+  }
   const handleFeedbackText = (e) => {
     setReview(e.target.value)
   }
@@ -53,6 +67,7 @@ const useHook = () => {
     setReview,
     handleFeedback,
     handleFeedbackText,
+    handleOrder,
   }
 }
 

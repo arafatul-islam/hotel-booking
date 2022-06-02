@@ -15,7 +15,7 @@ const Stuff = () => {
           subtitle='Feel Free To Contact With Our Stuff In Your Need'
         ></Banner>
       </Hero>
-      <div className='services-center'>
+      <div className='services-center' id='stuff'>
         {stuff.map((item, indx) => {
           return (
             <article key={indx} className='services'>

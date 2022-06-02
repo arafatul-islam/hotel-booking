@@ -16,6 +16,7 @@ import Profile from './Login/Profile'
 import PrivateOutlet from './PrivateRoutes/PrivateOutlet'
 import Stuff from './Components/Stuff'
 import FoodService from './Components/FoodService'
+import OrderList from './Components/OrderList'
 
 // import ShowSingleRoom from './Components/ShowSingleRoom'
 
@@ -33,6 +34,7 @@ function App() {
         <Route path='/' element={<Navigate to='home' />} />
         <Route path='stuff' element={<Stuff />} />
         <Route path='food-service' element={<FoodService />} />
+        <Route path='food-cart' element={<OrderList />} />
 
         <Route path='/login' element={<Login />} />
         <Route path='register' element={<Register />} />

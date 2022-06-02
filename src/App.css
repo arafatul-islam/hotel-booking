@@ -323,7 +323,15 @@ footer {
   min-height: 60vh;
   background-image: url('./images/room-2.jpeg');
 }
-
+.foodHero {
+  min-height: calc(100vh - 66px);
+  background: url('https://images.unsplash.com/photo-1550259114-ad7188f0a967?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80')
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
 /* End of Hero */
 /* Banner */
 .banner {
@@ -599,7 +607,6 @@ footer {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 30vh;
 }
 textarea {
   border: 1px solid #a9a9a9;
@@ -764,3 +771,13 @@ input[type='radio'] {
 
 /* end reservation */
 /* ----------------------------------------------------------------- */
+/* Order-list */
+.order-list {
+  padding: 5rem 0;
+  margin: 20px 0;
+  background: rgba(0, 0, 0, 0.184);
+  height: 50vh;
+  width: 50vw;
+
+  color: #f7f7f7;
+}

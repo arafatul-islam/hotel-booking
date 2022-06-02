@@ -129,6 +129,7 @@ const SingleRoom = (props) => {
           </section>
         </div>
       </section>
+      
       <div className='feedback'>
         <Feedback />
       </div>

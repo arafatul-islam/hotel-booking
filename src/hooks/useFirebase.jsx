@@ -29,6 +29,10 @@ const useFirebase = () => {
   const [reviewDB, setReviewDB] = useState('')
   const [rating, setRating] = useState(0)
   const [disableReview, setDisableReview] = useState(false)
+  const [addedFood, setAddedFood] = useState([])
+  const [cart, setCart] = useState([])
+  const [newCart, setNewCart] = useState([])
+
   // firebase oAuth
 
   const googleProvider = new GoogleAuthProvider()
@@ -169,6 +173,12 @@ const useFirebase = () => {
     setRating,
     disableReview,
     setDisableReview,
+    addedFood,
+    setAddedFood,
+    cart,
+    setCart,
+    newCart,
+    setNewCart,
   }
 }
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './../App.css'
-const Title = ({ title }) => {
+const Title = ({ title, children }) => {
   return (
     <>
       <div className='section-title'>

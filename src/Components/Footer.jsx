@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className='footer'>
       <div className='footer-center'>
         <p style={{ textAlign: 'center', marginTop: '15px' }}>
-          © Copyright Rafi {new Date().getFullYear()}
+          © All rights reserved {new Date().getFullYear()}
         </p>
       </div>
     </footer>

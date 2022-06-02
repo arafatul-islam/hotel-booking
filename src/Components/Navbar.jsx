@@ -3,6 +3,7 @@ import logo from '../images/logo.svg'
 import { FaAlignRight } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import useAuth from './../hooks/useAuth'
+import { HashLink } from 'react-router-hash-link'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -24,17 +25,17 @@ const Navbar = () => {
         </div>
         <ul className={isOpen ? 'nav-links show-nav' : 'nav-links'}>
           <li>
-            <Link to='/'>Home</Link>
+            <HashLink to='/'>Home</HashLink>
           </li>
           <li>
-            <Link to='rooms'>Rooms</Link>
+            <HashLink to='rooms#rooms'>Rooms</HashLink>
           </li>
 
           {user ? (
             <li>
               <>
                 {' '}
-                <Link to='stuff'>Our Stuff</Link>
+                <HashLink to='stuff#stuff'>Our Stuff</HashLink>
               </>{' '}
             </li>
           ) : (
@@ -44,7 +45,7 @@ const Navbar = () => {
             <li>
               <>
                 {' '}
-                <Link to='food-service'>Food Service</Link>
+                <HashLink to='food-service#food-service'>Food Service</HashLink>
               </>{' '}
             </li>
           ) : (
