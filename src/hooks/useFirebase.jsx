@@ -24,6 +24,11 @@ const useFirebase = () => {
   const [emailVerified, setEmailVerified] = useState(null)
   const [roomId, setRoomId] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
+  const [nameDB, setNameDB] = useState('')
+  const [ratingDB, setRatingDB] = useState(0)
+  const [reviewDB, setReviewDB] = useState('')
+  const [rating, setRating] = useState(0)
+  const [disableReview, setDisableReview] = useState(false)
   // firebase oAuth
 
   const googleProvider = new GoogleAuthProvider()
@@ -154,6 +159,16 @@ const useFirebase = () => {
     handleNameChange,
     roomId,
     setRoomId,
+    nameDB,
+    setNameDB,
+    ratingDB,
+    setRatingDB,
+    reviewDB,
+    setReviewDB,
+    rating,
+    setRating,
+    disableReview,
+    setDisableReview,
   }
 }
 

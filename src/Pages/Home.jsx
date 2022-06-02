@@ -14,7 +14,7 @@ const Home = (props) => {
           title='Luxurious Rooms'
           subtitle='Delux Room Starts @ &#2547;4000'
         >
-          <Link className='btn-primary' to='rooms'>
+          <Link className='btn-primary' to='/rooms'>
             Our Rooms
           </Link>
         </Banner>

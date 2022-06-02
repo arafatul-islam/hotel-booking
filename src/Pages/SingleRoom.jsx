@@ -16,6 +16,7 @@ const SingleRoom = (props) => {
   // useParams
   const { slug } = useParams()
   // data from context
+  exportSlug = slug
   const { getRoom } = useContext(RoomContext)
   const room = getRoom(slug)
   // firebase oAuth
@@ -29,7 +30,7 @@ const SingleRoom = (props) => {
     return (
       <div className='error'>
         <h3>No such room found!</h3>
-        <Link to='room' className='btn-primary '>
+        <Link to='/rooms' className='btn-primary '>
           Back to rooms
         </Link>
       </div>
@@ -48,7 +49,7 @@ const SingleRoom = (props) => {
   } = room
 
   emailVerified === false && setEmailVerified(null)
-  console.log(getSlug)
+
   if (user && !emailVerified) {
     showLink = (
       <Link to='/email-verification' className='btn-book'>
@@ -124,16 +125,17 @@ const SingleRoom = (props) => {
             {extras.map((item, index) => {
               return <li key={index}>-{item}</li>
             })}
-            <div className='feedback'>
-              <Feedback />
-            </div>
             <div />
           </section>
         </div>
       </section>
+      <div className='feedback'>
+        <Feedback />
+      </div>
       <Outlet />
     </div>
   )
 }
 
+export var exportSlug
 export default SingleRoom

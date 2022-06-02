@@ -108,6 +108,26 @@ h6 {
   color: rgb(237, 143, 126);
   font-weight: bolder;
 }
+.btn-review {
+  display: inline-block;
+  text-decoration: none;
+  letter-spacing: var(--mainSpacing);
+  color: var(--mainBlack);
+  padding: 1rem 2rem;
+  margin: 12px 0;
+  transition: var(--mainTransition);
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 80vw;
+  border: 1px solid var(--red);
+  border-radius: 15px;
+}
+.btn-review:hover {
+  background: transparent;
+  color: #9b9191;
+  font-weight: bolder;
+}
+
 .btn-logout {
   display: inline-block;
   text-decoration: none;
@@ -501,6 +521,7 @@ footer {
 .single-room {
   padding: 5rem 0;
   /* border: 1px solid; */
+  margin: 20px 0;
 }
 .single-room-images {
   width: 80vw;
@@ -567,11 +588,17 @@ footer {
   padding-top: 8px;
   padding-right: auto;
 }
+#user-review {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .feedback {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: flex-start;
+  align-items: center;
   height: 30vh;
 }
 textarea {

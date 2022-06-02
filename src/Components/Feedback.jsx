@@ -5,66 +5,92 @@ import useHook from '../hooks/useHook'
 import { db } from '../Backend/Firebase/firebase.initialize'
 import { collection, getDocs } from 'firebase/firestore'
 import { async } from '@firebase/util'
+import { exportSlug } from '../Pages/SingleRoom'
+import Title from './Title'
 
 const Feedback = () => {
   const [dbStars, setDbStars] = useState([])
   const [averageRatings, setAverageRatings] = useState(0)
+  const [dbReview, setDbReview] = useState([])
   const { handleFeedback, handleFeedbackText } = useHook()
-  const { emailVerified } = useAuth()
+  const {
+    emailVerified,
+    nameDB,
+    setNameDB,
+    ratingDB,
+    setRatingDB,
+    reviewDB,
+    setReviewDB,
+    disableReview,
+    setDisableReview,
+  } = useAuth()
 
-  const dbStarsRef = collection(db, 'starRatingSystem')
+  // db reference for star rating and review
+  const dbSlugRef = collection(db, `${exportSlug}`)
 
   let sum = 0
 
   useEffect(() => {
-    const getStars = async () => {
-      const starsFromDB = await getDocs(dbStarsRef)
-
-      setAverageRatings(
-        Math.ceil(
-          starsFromDB.docs
-            .map((item) => ({ ...item.data() }))
-            .reduce((p, c) => {
-              return p + c.stars
-            }, 0) / starsFromDB.docs.length
-        )
+    //getting star rating from db
+    const getSlugs = async () => {
+      const starsAndReviews = await getDocs(dbSlugRef)
+      setDbReview(
+        starsAndReviews.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       )
-
-      console.log(averageRatings)
     }
+    const allRating = dbReview.reduce((prev, curr) => {
+      return prev + parseInt(curr.rating)
+    }, 0)
 
-    getStars()
-  }, [setDbStars])
+    const avg = allRating / parseInt(dbReview.length)
+
+    // setAverageRatings(avg)
+
+    // console.log(avg)
+    // console.log(averageRatings)
+
+    getSlugs()
+  }, [setDbReview])
 
   if (!emailVerified) {
     return (
-      <div className='feedback'>
-        <form onSubmit={handleFeedback} disabled>
-          <StarRating averageRatings={averageRatings} />
-          <div>
-            <textarea
-              placeholder='Only verified user can review'
-              onChange={handleFeedbackText}
-              disabled
-            ></textarea>
-          </div>
-          <button disabled>submit</button>
-        </form>
-      </div>
+      <>
+        <Title title={`Users Ratings:`}></Title>
+        {dbReview.map((user) => (
+          <section id='user-review'>
+            <div className='btn-review'>
+              <h4> Name: {user.name}</h4>
+              <h4 style={{ display: 'flex' }}>
+                Ratings:{' '}
+                {user.rating && <StarRating averageRatings={user.rating} />}
+              </h4>
+              <h4>Review : {user.review_msg}</h4>
+            </div>
+          </section>
+        ))}
+      </>
     )
   }
   return (
     <div className='feedback'>
-      <StarRating averageRatings={5} />
-      <form onSubmit={handleFeedback}>
-        <div>
-          <textarea
-            placeholder='we love to hear your feedback'
-            onChange={handleFeedbackText}
-          ></textarea>
-        </div>
-        <button className='btn-book'>submit</button>
-      </form>
+      {!disableReview ? (
+        <>
+          <StarRating averageRatings={5} />
+          <form onSubmit={handleFeedback}>
+            <div>
+              <textarea
+                placeholder='we love to hear your feedback'
+                onBlur={handleFeedbackText}
+              ></textarea>
+            </div>
+            <button className='btn-book'>submit</button>
+          </form>
+        </>
+      ) : (
+        <>
+          <Title title={`thank you for your review`} />
+        </>
+      )}
     </div>
   )
 }
