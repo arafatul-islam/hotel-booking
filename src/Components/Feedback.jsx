@@ -14,6 +14,7 @@ const Feedback = () => {
   const [dbReview, setDbReview] = useState([])
   const { handleFeedback, handleFeedbackText } = useHook()
   const {
+    user,
     emailVerified,
     nameDB,
     setNameDB,
@@ -23,10 +24,13 @@ const Feedback = () => {
     setReviewDB,
     disableReview,
     setDisableReview,
+    dbReviewToggler,
+    setDbReviewToggler,
   } = useAuth()
 
   // db reference for star rating and review
   const dbSlugRef = collection(db, `${exportSlug}`)
+  const reviewToggleRef = collection(db, `${user?.email}review`)
 
   let sum = 0
 
@@ -38,19 +42,20 @@ const Feedback = () => {
         starsAndReviews.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       )
     }
-    const allRating = dbReview.reduce((prev, curr) => {
-      return prev + parseInt(curr.rating)
-    }, 0)
-
-    const avg = allRating / parseInt(dbReview.length)
-
-    // setAverageRatings(avg)
-
-    // console.log(avg)
-    // console.log(averageRatings)
-
     getSlugs()
   }, [setDbReview])
+
+  useEffect(() => {
+    const getReviewToggle = async () => {
+      const reviewToggler = await getDocs(reviewToggleRef)
+      setDbReviewToggler(
+        reviewToggler.docs.map((doc) => ({ ...doc.data(), id: doc.id }))[0]
+          .toggle
+      )
+      console.log(dbReviewToggler)
+    }
+    getReviewToggle()
+  })
 
   if (!emailVerified) {
     return (
@@ -73,7 +78,7 @@ const Feedback = () => {
   }
   return (
     <div className='feedback'>
-      {!disableReview ? (
+      {!dbReviewToggler ? (
         <>
           <StarRating averageRatings={5} />
           <form onSubmit={handleFeedback}>
@@ -89,6 +94,18 @@ const Feedback = () => {
       ) : (
         <>
           <Title title={`thank you for your review`} />
+          {dbReview.map((user) => (
+            <section id='user-review'>
+              <div className='btn-review'>
+                <h4> Name: {user.name}</h4>
+                <h4 style={{ display: 'flex', alignItems: 'center' }}>
+                  Ratings:{' '}
+                  {user.rating && <StarRating averageRatings={user.rating} />}
+                </h4>
+                <h4>Review : {user.review_msg}</h4>
+              </div>
+            </section>
+          ))}
         </>
       )}
     </div>

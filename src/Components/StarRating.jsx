@@ -5,7 +5,7 @@ import useHook from '../hooks/useHook'
 
 const StarRating = ({ averageRatings }) => {
   const { hover, setHover } = useHook()
-  const { emailVerified, rating, setRating } = useAuth()
+  const { emailVerified, rating, setRating, dbReviewToggler } = useAuth()
 
   return (
     <div
@@ -20,7 +20,7 @@ const StarRating = ({ averageRatings }) => {
         return (
           <label key={i}>
             <input type='radio' name='rating' value={ratingValue} />
-            {emailVerified ? (
+            {emailVerified && !dbReviewToggler ? (
               <FaStar
                 className='star'
                 size={35}
@@ -30,7 +30,7 @@ const StarRating = ({ averageRatings }) => {
                 color={ratingValue <= (hover || rating) ? '#ffc107' : '#E4E5E9'}
               />
             ) : (
-              <FaStar className='star' size={20} color='#ffc107' />
+              <FaStar className='star' size={28} color='#ffc107' />
             )}
           </label>
         )

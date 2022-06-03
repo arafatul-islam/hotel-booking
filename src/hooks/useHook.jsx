@@ -17,7 +17,8 @@ const useHook = () => {
 
   // review store in fireStore
   const dbSlugRef = collection(db, `${exportSlug}`)
-  const dbUsers = collection(db, `${user?.email}`)
+  const dbUsersRef = collection(db, `${user?.email}`)
+  const reviewToggleRef = collection(db, `${user?.email}review`)
 
   const handleFeedback = async (e) => {
     e.preventDefault()
@@ -27,20 +28,20 @@ const useHook = () => {
       rating: rating,
       review_msg: review,
     })
-    setDisableReview(true)
 
-    console.log(rating)
-    console.log(review)
-    console.log(disableReview)
-    console.log(exportSlug)
+    await addDoc(reviewToggleRef, {
+      toggle: true,
+    })
   }
+
+  // food order save to firestore db
   const handleOrder = async (foodName, foodPrice, foodImg) => {
     cart.push(foodPrice)
     setCart([...cart], foodPrice)
     const totalPrice = cart.reduce((p, c) => p + c, 0)
 
     // store to db food data
-    await addDoc(dbUsers, {
+    await addDoc(dbUsersRef, {
       name: user.displayName,
       foodName: foodName,
       foodPrice: foodPrice,

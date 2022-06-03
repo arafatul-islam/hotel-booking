@@ -32,7 +32,7 @@ const useFirebase = () => {
   const [addedFood, setAddedFood] = useState([])
   const [cart, setCart] = useState([])
   const [newCart, setNewCart] = useState([])
-
+  const [dbReviewToggler, setDbReviewToggler] = useState(false)
   // firebase oAuth
 
   const googleProvider = new GoogleAuthProvider()
@@ -179,6 +179,8 @@ const useFirebase = () => {
     setCart,
     newCart,
     setNewCart,
+    dbReviewToggler,
+    setDbReviewToggler,
   }
 }
 
